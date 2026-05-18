@@ -8,7 +8,7 @@ The repo started from a reusable agentic starter pack. The workflow docs, comman
 - TypeScript
 - Tailwind CSS
 - MDX-based articles
-- Local content files in `content/articles/`
+- Local content files in `apps/web/content/articles/`
 - Vercel deployment later
 
 ## MVP Boundary
@@ -43,7 +43,7 @@ Do not add:
 Articles live as `.mdx` files in:
 
 ```text
-content/articles/
+apps/web/content/articles/
 ```
 
 Publishing flow:
@@ -74,4 +74,14 @@ For this MVP:
 
 ## Current Status
 
-This is documentation/workflow setup only. The Next.js app has not been scaffolded and no packages have been installed.
+The MVP static blog scaffold lives in `apps/web/`.
+
+## Local Development
+
+```bash
+pnpm install
+pnpm --dir apps/web dev
+pnpm --dir apps/web lint
+pnpm --dir apps/web typecheck
+pnpm --dir apps/web build
+```
