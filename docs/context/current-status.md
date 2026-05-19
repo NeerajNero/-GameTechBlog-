@@ -26,12 +26,15 @@ MVP static blog vertical slice is implemented under `apps/web/`.
 - Search Console setup.
 - AdSense application.
 - Real article cover image assets.
-- Sitemap, robots, RSS, and JSON-LD article schema.
+- Sitemap, robots, and JSON-LD article schema.
 - Policy pages.
+- RSS feed.
+- Category and tag pages.
+- SEO documentation has been patched for scope and best practices, but implementation is still pending.
 
 ## Next Recommended Task
 
-Add sitemap, robots, JSON-LD article schema, and policy pages as the next SEO foundation slice.
+Create and approve the SEO foundation implementation plan from `docs/seo-implementation-patterns.md`: sitemap, robots, metadata/canonical URL helpers, JSON-LD, and static trust/policy pages. RSS and category/tag pages remain deferred.
 
 ## Known Constraints
 
