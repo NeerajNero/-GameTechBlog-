@@ -2,7 +2,7 @@
 
 ## Status
 
-MVP static blog, SEO foundation, and Cloudinary image foundation slices are implemented under `apps/web/`. Taxonomy/design polish is planned and approved, but not implemented.
+MVP static blog, SEO foundation, Cloudinary image foundation, and taxonomy/design polish slices are implemented under `apps/web/`.
 
 ## Completed
 
@@ -28,6 +28,7 @@ MVP static blog, SEO foundation, and Cloudinary image foundation slices are impl
 - Taxonomy/design classification created at `docs/features/classifications/taxonomy-design.classification.md`.
 - Taxonomy/design implementation plan created at `docs/features/plans/taxonomy-design.plan.md`.
 - Taxonomy/design approval created at `docs/features/approvals/taxonomy-design.approval.md`.
+- Taxonomy/design implemented with category pages, tag pages, homepage polish, listing polish, article detail polish, navigation polish, and sitemap updates.
 
 ## Not Started
 
@@ -37,13 +38,12 @@ MVP static blog, SEO foundation, and Cloudinary image foundation slices are impl
 - AdSense application.
 - Real article cover image asset selection and upload.
 - RSS feed.
-- Taxonomy/design implementation for category and tag pages.
 - Real production `NEXT_PUBLIC_SITE_URL` configuration on Vercel.
 - Google Rich Results Test validation after deployment.
 
 ## Next Recommended Task
 
-Implement the approved taxonomy/design slice from `docs/features/approvals/taxonomy-design.approval.md`.
+Run a final review pass on the taxonomy/design implementation, or plan the real article image asset pass.
 
 ## Known Constraints
 
@@ -52,5 +52,4 @@ Implement the approved taxonomy/design slice from `docs/features/approvals/taxon
 - Article cover images are intentionally empty until real Cloudinary assets are selected and uploaded manually.
 - Cloudinary is delivery-only in MVP; no upload/admin system, SDK, signed uploads, credentials, or backend routes are included.
 - RSS, ads, analytics, affiliate links, backend, database, auth, CMS, and Docker remain deferred.
-- Category/tag pages are approved for the next frontend/static implementation slice.
 - Production Vercel must set `NEXT_PUBLIC_SITE_URL` before public launch.

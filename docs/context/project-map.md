@@ -19,13 +19,14 @@ Keep this file compact. It is the first context file an agent should read.
 | Architecture | `docs/architecture.md` | Static content-site architecture |
 | Command map | `docs/command-map.md` | Real package and app commands |
 | Web app | `apps/web/` | Next.js App Router blog |
-| App routes | `apps/web/app/` | Home, article listing, article detail |
+| App routes | `apps/web/app/` | Home, article listing, article detail, category pages, tag pages |
 | SEO routes | `apps/web/app/robots.ts`, `apps/web/app/sitemap.ts` | Robots and sitemap |
 | Trust/policy pages | `apps/web/app/about`, `apps/web/app/contact`, `apps/web/app/privacy-policy`, `apps/web/app/terms`, `apps/web/app/editorial-policy`, `apps/web/app/affiliate-disclosure` | Static launch-readiness pages |
 | Layout components | `apps/web/components/layout/` | Header, footer, shell |
 | Blog components | `apps/web/components/blog/` | Article cards, metadata, MDX rendering |
 | SEO components | `apps/web/components/seo/` | JSON-LD rendering |
 | Content helpers | `apps/web/lib/content/` | Frontmatter parsing, validation, draft filtering |
+| Taxonomy helpers | `apps/web/lib/content/taxonomy.ts` | Category/tag collections, slug lookup, related article helpers |
 | SEO helpers | `apps/web/lib/seo/` | Metadata, URL helpers, structured data |
 | Articles | `apps/web/content/articles/` | Local MDX article files |
 | Image handling guide | `docs/image-handling.md` | Manual Cloudinary workflow and asset rules |
@@ -37,6 +38,7 @@ Keep this file compact. It is the first context file an agent should read.
 | SEO approval | `docs/features/approvals/seo-foundation.approval.md` | Use this for implementation |
 | Approved taxonomy/design plan | `docs/features/plans/taxonomy-design.plan.md` | Category/tag route and polish plan |
 | Taxonomy/design approval | `docs/features/approvals/taxonomy-design.approval.md` | Use this for the next implementation |
+| Taxonomy/design report | `docs/features/reports/taxonomy-design.implementation.md` | Implementation summary and verification |
 
 ## Current Architecture Notes
 
@@ -49,7 +51,7 @@ Keep this file compact. It is the first context file an agent should read.
 - Article cover images are intentionally empty until the real asset pass.
 - SEO foundation implementation is complete.
 - Cloudinary image foundation implementation is complete.
-- Taxonomy/design polish is approved but not yet implemented.
+- Taxonomy/design polish is implemented with static category and tag routes.
 
 ## Read First For New Features
 
@@ -62,5 +64,5 @@ Keep this file compact. It is the first context file an agent should read.
 ## Last Updated
 
 - Date: 2026-05-19
-- Command: `/approve docs/features/plans/taxonomy-design.plan.md`
-- Source artifact: `docs/features/approvals/taxonomy-design.approval.md`
+- Command: `/implement docs/features/approvals/taxonomy-design.approval.md`
+- Source artifact: `docs/features/reports/taxonomy-design.implementation.md`

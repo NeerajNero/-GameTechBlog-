@@ -2,14 +2,15 @@ import Link from "next/link";
 import { siteConfig } from "@/lib/site/config";
 
 const navItems = [
-  { href: "/", label: "Home" },
-  { href: "/articles", label: "Articles" }
+  { href: "/articles", label: "Articles" },
+  { href: "/categories", label: "Categories" },
+  { href: "/tags", label: "Tags" }
 ];
 
 export function SiteHeader() {
   return (
     <header className="border-b border-slate-200 bg-white/90 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-3">
           <span className="grid h-9 w-9 place-items-center rounded-md bg-ink text-sm font-black text-white">
             GT
@@ -21,7 +22,7 @@ export function SiteHeader() {
             </span>
           </span>
         </Link>
-        <nav className="flex items-center gap-1" aria-label="Primary navigation">
+        <nav className="flex flex-wrap items-center gap-1" aria-label="Primary navigation">
           {navItems.map((item) => (
             <Link
               key={item.href}

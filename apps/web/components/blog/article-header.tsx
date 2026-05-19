@@ -1,30 +1,38 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { Article } from "@/lib/content/types";
 import { ArticleMeta } from "@/components/blog/article-meta";
 import { TagList } from "@/components/blog/tag-list";
 import { getRenderableImageSrc } from "@/lib/content/images";
+import { slugify } from "@/lib/utils/slug";
 
 export function ArticleHeader({ article }: { article: Article }) {
   const coverImage = getRenderableImageSrc(article.coverImage);
+  const categoryHref = `/categories/${slugify(article.category)}`;
 
   return (
     <header className="space-y-6 border-b border-slate-200 pb-8">
       <div className="space-y-3">
-        <p className="text-sm font-black uppercase tracking-wide text-circuit">
+        <Link
+          href={categoryHref}
+          className="inline-flex text-sm font-black uppercase tracking-wide text-circuit hover:text-ink"
+        >
           {article.category}
-        </p>
+        </Link>
         <h1 className="max-w-4xl text-4xl font-black leading-tight text-ink sm:text-5xl">
           {article.title}
         </h1>
         <p className="max-w-3xl text-lg leading-8 text-slate-600">{article.description}</p>
       </div>
-      <ArticleMeta
-        author={article.author}
-        publishedAt={article.publishedAt}
-        updatedAt={article.updatedAt}
-        readingTime={article.readingTime}
-      />
-      <TagList tags={article.tags} />
+      <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-soft">
+        <ArticleMeta
+          author={article.author}
+          publishedAt={article.publishedAt}
+          updatedAt={article.updatedAt}
+          readingTime={article.readingTime}
+        />
+      </div>
+      <TagList tags={article.tags} getHref={(tag) => `/tags/${slugify(tag)}`} />
       {coverImage ? (
         <figure className="overflow-hidden rounded-lg border border-slate-200 bg-white">
           <div className="relative aspect-[16/9]">
