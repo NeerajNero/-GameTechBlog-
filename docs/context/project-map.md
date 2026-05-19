@@ -20,10 +20,13 @@ Keep this file compact. It is the first context file an agent should read.
 | Command map | `docs/command-map.md` | Real package and app commands |
 | Web app | `apps/web/` | Next.js App Router blog |
 | App routes | `apps/web/app/` | Home, article listing, article detail |
+| SEO routes | `apps/web/app/robots.ts`, `apps/web/app/sitemap.ts` | Robots and sitemap |
+| Trust/policy pages | `apps/web/app/about`, `apps/web/app/contact`, `apps/web/app/privacy-policy`, `apps/web/app/terms`, `apps/web/app/editorial-policy`, `apps/web/app/affiliate-disclosure` | Static launch-readiness pages |
 | Layout components | `apps/web/components/layout/` | Header, footer, shell |
 | Blog components | `apps/web/components/blog/` | Article cards, metadata, MDX rendering |
+| SEO components | `apps/web/components/seo/` | JSON-LD rendering |
 | Content helpers | `apps/web/lib/content/` | Frontmatter parsing, validation, draft filtering |
-| SEO helpers | `apps/web/lib/seo/` | Page and article metadata |
+| SEO helpers | `apps/web/lib/seo/` | Metadata, URL helpers, structured data |
 | Articles | `apps/web/content/articles/` | Local MDX article files |
 | Article images | `apps/web/public/images/articles/` | Future cover image assets |
 | Content strategy | `docs/content-strategy.md` | Audience, pillars, article types |
@@ -39,7 +42,7 @@ Keep this file compact. It is the first context file an agent should read.
 - The MVP is a static content site with file-based MDX content.
 - Backend, database, admin panel, CMS, auth, payments, accounts, and Docker are deferred.
 - Article cover images are placeholders in the first slice.
-- SEO foundation implementation is approved but not yet implemented.
+- SEO foundation implementation is complete.
 
 ## Read First For New Features
 
@@ -52,5 +55,5 @@ Keep this file compact. It is the first context file an agent should read.
 ## Last Updated
 
 - Date: 2026-05-19
-- Command: `/approve docs/features/plans/seo-foundation.plan.md`
-- Source artifact: `docs/features/approvals/seo-foundation.approval.md`
+- Command: `/implement docs/features/approvals/seo-foundation.approval.md`
+- Source artifact: `docs/features/reports/seo-foundation.implementation.md`

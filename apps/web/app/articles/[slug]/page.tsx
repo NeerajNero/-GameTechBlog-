@@ -1,8 +1,13 @@
 import { notFound } from "next/navigation";
 import { ArticleHeader } from "@/components/blog/article-header";
 import { MdxContent } from "@/components/blog/mdx-content";
+import { JsonLd } from "@/components/seo/json-ld";
 import { getArticleBySlug, getArticleSlugs } from "@/lib/content/articles";
 import { createArticleMetadata } from "@/lib/seo/metadata";
+import {
+  createArticleJsonLd,
+  createBreadcrumbJsonLd
+} from "@/lib/seo/structured-data";
 
 type ArticlePageProps = {
   params: {
@@ -35,6 +40,14 @@ export default function ArticlePage({ params }: ArticlePageProps) {
 
   return (
     <article className="mx-auto max-w-4xl px-4 py-10 sm:px-6 lg:px-8">
+      <JsonLd data={createArticleJsonLd(article)} />
+      <JsonLd
+        data={createBreadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Articles", path: "/articles" },
+          { name: article.title, path: `/articles/${article.slug}` }
+        ])}
+      />
       <ArticleHeader article={article} />
       <div className="pt-8">
         <MdxContent source={article.content} />

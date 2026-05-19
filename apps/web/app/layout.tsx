@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import "./globals.css";
 import { SiteShell } from "@/components/layout/site-shell";
 import { siteConfig } from "@/lib/site/config";
+import { isProductionSite, siteUrl } from "@/lib/seo/urls";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -11,7 +12,13 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`
   },
   description: siteConfig.description,
-  applicationName: siteConfig.name
+  applicationName: siteConfig.name,
+  alternates: {
+    canonical: siteUrl
+  },
+  robots: isProductionSite
+    ? { index: true, follow: true }
+    : { index: false, follow: false }
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

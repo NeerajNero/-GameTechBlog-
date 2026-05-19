@@ -1,4 +1,14 @@
+import Link from "next/link";
 import { siteConfig } from "@/lib/site/config";
+
+const footerLinks = [
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
+  { href: "/privacy-policy", label: "Privacy" },
+  { href: "/terms", label: "Terms" },
+  { href: "/editorial-policy", label: "Editorial policy" },
+  { href: "/affiliate-disclosure", label: "Affiliate disclosure" }
+];
 
 export function SiteFooter() {
   return (
@@ -13,6 +23,13 @@ export function SiteFooter() {
           No ads, affiliate links, analytics, backend, accounts, or CMS are included in
           this MVP slice.
         </p>
+        <nav className="flex flex-wrap gap-x-4 gap-y-2 pt-2" aria-label="Footer links">
+          {footerLinks.map((link) => (
+            <Link key={link.href} href={link.href} className="font-semibold hover:text-circuit">
+              {link.label}
+            </Link>
+          ))}
+        </nav>
       </div>
     </footer>
   );

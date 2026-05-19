@@ -2,7 +2,7 @@
 
 ## Status
 
-- Status: approved
+- Status: implemented
 - Feature slug: `seo-foundation`
 - Source stories: `docs/features/seo-foundation.md`, `docs/seo-implementation-patterns.md`
 - Classification: `docs/features/classifications/seo-foundation.classification.md`
