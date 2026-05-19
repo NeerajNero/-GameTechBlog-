@@ -56,6 +56,7 @@ Keep this file compact. It is the first context file an agent should read.
 - Site assets stay in the repo.
 - Article/media images use manually uploaded Cloudinary delivery URLs.
 - Article cover images for the first three sample articles use Cloudinary delivery URLs.
+- The published Total Overdose opinion article also uses a Cloudinary cover image URL.
 - Future article images should follow `docs/image-asset-checklist.md`.
 - SEO foundation implementation is complete.
 - Cloudinary image foundation implementation is complete.

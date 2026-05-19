@@ -33,6 +33,8 @@ MVP static blog, SEO foundation, Cloudinary image foundation, taxonomy/design po
 - Article image asset pass plan created at `docs/features/plans/article-image-asset-pass.plan.md`.
 - Manual image asset checklist created at `docs/image-asset-checklist.md`.
 - Three sample articles now include real Cloudinary cover image URLs, alt text, and owner-credit frontmatter.
+- Total Overdose nostalgia/opinion article is now published with Cloudinary cover metadata:
+  - `apps/web/content/articles/total-overdose-underrated-ps2-masterpiece.mdx`
 - Pre-launch review completed.
 - Vercel launch checklist, domain setup guide, and environment variable guide created under `docs/deployment/`.
 - Pre-launch lint, typecheck, build, smoke checks, sitemap/robots checks, and JSON-LD/canonical inspection passed locally.
@@ -67,6 +69,7 @@ Push the Vercel pre-domain deployment fix, redeploy to the temporary Vercel URL,
 - This workspace is a Git repository.
 - Backend, database, Docker, auth, CMS, admin, payments, and user accounts remain deferred.
 - Article cover images for the first three sample articles use Cloudinary delivery URLs.
+- Published Total Overdose article also uses a Cloudinary delivery URL for cover image.
 - Cloudinary is delivery-only in MVP; no upload/admin system, SDK, signed uploads, credentials, or backend routes are included.
 - RSS, ads, analytics, affiliate links, backend, database, auth, CMS, and Docker remain deferred.
 - Temporary Vercel deployment can build without `NEXT_PUBLIC_SITE_URL` and should remain noindex.
