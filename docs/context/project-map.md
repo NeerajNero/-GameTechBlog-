@@ -30,6 +30,7 @@ Keep this file compact. It is the first context file an agent should read.
 | SEO helpers | `apps/web/lib/seo/` | Metadata, URL helpers, structured data |
 | Articles | `apps/web/content/articles/` | Local MDX article files |
 | Image handling guide | `docs/image-handling.md` | Manual Cloudinary workflow and asset rules |
+| Image asset checklist | `docs/image-asset-checklist.md` | Manual cover image QA before upload/frontmatter updates |
 | Article image helpers | `apps/web/lib/content/images.ts` | Renderability checks for Cloudinary and local public images |
 | Content strategy | `docs/content-strategy.md` | Audience, pillars, article types |
 | SEO checklist | `docs/seo-checklist.md` | Publishing quality gate |
@@ -39,6 +40,8 @@ Keep this file compact. It is the first context file an agent should read.
 | Approved taxonomy/design plan | `docs/features/plans/taxonomy-design.plan.md` | Category/tag route and polish plan |
 | Taxonomy/design approval | `docs/features/approvals/taxonomy-design.approval.md` | Use this for the next implementation |
 | Taxonomy/design report | `docs/features/reports/taxonomy-design.implementation.md` | Implementation summary and verification |
+| Article image asset plan | `docs/features/plans/article-image-asset-pass.plan.md` | Manual cover image plan for current articles |
+| Article image asset report | `docs/features/reports/article-image-asset-pass.implementation.md` | First Cloudinary cover image update report |
 
 ## Current Architecture Notes
 
@@ -48,7 +51,8 @@ Keep this file compact. It is the first context file an agent should read.
 - Backend, database, admin panel, CMS, auth, payments, accounts, and Docker are deferred.
 - Site assets stay in the repo.
 - Article/media images use manually uploaded Cloudinary delivery URLs.
-- Article cover images are intentionally empty until the real asset pass.
+- Article cover images for the first three sample articles use Cloudinary delivery URLs.
+- Future article images should follow `docs/image-asset-checklist.md`.
 - SEO foundation implementation is complete.
 - Cloudinary image foundation implementation is complete.
 - Taxonomy/design polish is implemented with static category and tag routes.
@@ -64,5 +68,5 @@ Keep this file compact. It is the first context file an agent should read.
 ## Last Updated
 
 - Date: 2026-05-19
-- Command: `/implement docs/features/approvals/taxonomy-design.approval.md`
-- Source artifact: `docs/features/reports/taxonomy-design.implementation.md`
+- Command: `/implement docs/features/plans/article-image-asset-pass.plan.md`
+- Source artifact: `docs/features/reports/article-image-asset-pass.implementation.md`

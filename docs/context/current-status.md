@@ -2,7 +2,7 @@
 
 ## Status
 
-MVP static blog, SEO foundation, Cloudinary image foundation, and taxonomy/design polish slices are implemented under `apps/web/`.
+MVP static blog, SEO foundation, Cloudinary image foundation, taxonomy/design polish, and the first article image asset pass are implemented under `apps/web/`.
 
 ## Completed
 
@@ -29,6 +29,10 @@ MVP static blog, SEO foundation, Cloudinary image foundation, and taxonomy/desig
 - Taxonomy/design implementation plan created at `docs/features/plans/taxonomy-design.plan.md`.
 - Taxonomy/design approval created at `docs/features/approvals/taxonomy-design.approval.md`.
 - Taxonomy/design implemented with category pages, tag pages, homepage polish, listing polish, article detail polish, navigation polish, and sitemap updates.
+- Article image asset pass classification created at `docs/features/classifications/article-image-asset-pass.classification.md`.
+- Article image asset pass plan created at `docs/features/plans/article-image-asset-pass.plan.md`.
+- Manual image asset checklist created at `docs/image-asset-checklist.md`.
+- Three sample articles now include real Cloudinary cover image URLs, alt text, and owner-credit frontmatter.
 
 ## Not Started
 
@@ -36,20 +40,19 @@ MVP static blog, SEO foundation, Cloudinary image foundation, and taxonomy/desig
 - Custom domain setup.
 - Search Console setup.
 - AdSense application.
-- Real article cover image asset selection and upload.
 - RSS feed.
 - Real production `NEXT_PUBLIC_SITE_URL` configuration on Vercel.
 - Google Rich Results Test validation after deployment.
 
 ## Next Recommended Task
 
-Run a final review pass on the taxonomy/design implementation, or plan the real article image asset pass.
+Review the article image asset pass and then commit the current documentation/content changes.
 
 ## Known Constraints
 
 - This workspace is a Git repository.
 - Backend, database, Docker, auth, CMS, admin, payments, and user accounts remain deferred.
-- Article cover images are intentionally empty until real Cloudinary assets are selected and uploaded manually.
+- Article cover images for the first three sample articles use Cloudinary delivery URLs.
 - Cloudinary is delivery-only in MVP; no upload/admin system, SDK, signed uploads, credentials, or backend routes are included.
 - RSS, ads, analytics, affiliate links, backend, database, auth, CMS, and Docker remain deferred.
 - Production Vercel must set `NEXT_PUBLIC_SITE_URL` before public launch.
