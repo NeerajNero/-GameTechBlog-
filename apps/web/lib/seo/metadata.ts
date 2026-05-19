@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { siteConfig } from "@/lib/site/config";
 import type { Article } from "@/lib/content/types";
-import { absoluteUrl, isProductionSite, siteUrl } from "@/lib/seo/urls";
+import { absoluteUrl, isProductionIndexable, siteUrl } from "@/lib/seo/urls";
 import { getRenderableImageSrc } from "@/lib/content/images";
 
-const robots = isProductionSite
+const robots = isProductionIndexable()
   ? { index: true, follow: true }
   : { index: false, follow: false };
 
