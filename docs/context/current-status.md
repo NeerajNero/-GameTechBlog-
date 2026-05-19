@@ -31,13 +31,17 @@ MVP static blog vertical slice is implemented under `apps/web/`.
 - RSS feed.
 - Category and tag pages.
 - SEO documentation has been patched for scope and best practices, but implementation is still pending.
+- SEO foundation classification created at `docs/features/classifications/seo-foundation.classification.md`.
+- SEO foundation implementation plan created at `docs/features/plans/seo-foundation.plan.md`.
+- SEO foundation approval created at `docs/features/approvals/seo-foundation.approval.md`.
 
 ## Next Recommended Task
 
-Create and approve the SEO foundation implementation plan from `docs/seo-implementation-patterns.md`: sitemap, robots, metadata/canonical URL helpers, JSON-LD, and static trust/policy pages. RSS and category/tag pages remain deferred.
+Implement the approved SEO foundation slice from `docs/features/approvals/seo-foundation.approval.md`.
 
 ## Known Constraints
 
 - This workspace is a Git repository.
 - Backend, database, Docker, auth, CMS, admin, payments, and user accounts remain deferred.
 - Article cover image files are placeholders for a later asset pass.
+- SEO implementation must not add RSS, category/tag pages, ads, analytics, affiliate links, backend, database, auth, CMS, or Docker.

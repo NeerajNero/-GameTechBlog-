@@ -28,6 +28,9 @@ Keep this file compact. It is the first context file an agent should read.
 | Article images | `apps/web/public/images/articles/` | Future cover image assets |
 | Content strategy | `docs/content-strategy.md` | Audience, pillars, article types |
 | SEO checklist | `docs/seo-checklist.md` | Publishing quality gate |
+| SEO implementation pattern | `docs/seo-implementation-patterns.md` | Sitemap, robots, canonicals, JSON-LD, trust page rules |
+| Approved SEO plan | `docs/features/plans/seo-foundation.plan.md` | Normal-lane implementation plan |
+| SEO approval | `docs/features/approvals/seo-foundation.approval.md` | Use this for implementation |
 
 ## Current Architecture Notes
 
@@ -36,6 +39,7 @@ Keep this file compact. It is the first context file an agent should read.
 - The MVP is a static content site with file-based MDX content.
 - Backend, database, admin panel, CMS, auth, payments, accounts, and Docker are deferred.
 - Article cover images are placeholders in the first slice.
+- SEO foundation implementation is approved but not yet implemented.
 
 ## Read First For New Features
 
@@ -48,5 +52,5 @@ Keep this file compact. It is the first context file an agent should read.
 ## Last Updated
 
 - Date: 2026-05-19
-- Command: `/implement docs/features/approvals/mvp-static-blog.approval.md`
-- Source artifact: `docs/features/approvals/mvp-static-blog.approval.md`
+- Command: `/approve docs/features/plans/seo-foundation.plan.md`
+- Source artifact: `docs/features/approvals/seo-foundation.approval.md`
