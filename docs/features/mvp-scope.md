@@ -6,7 +6,7 @@
 - TypeScript.
 - Tailwind CSS.
 - MDX article rendering.
-- Local article files in `content/articles/`.
+- Local article files in `apps/web/content/articles/`.
 - Frontmatter metadata.
 - Homepage.
 - Article index.

@@ -18,7 +18,7 @@ Record durable project decisions that future agents should not rediscover.
 - Date: 2026-05-19
 - Status: active
 - Context: The blog needs fast publishing, versioned content, and low operational overhead.
-- Decision: Store articles as local `.mdx` files under `content/articles/` with frontmatter metadata.
+- Decision: Store articles as local `.mdx` files under `apps/web/content/articles/` with frontmatter metadata.
 - Consequences: Content changes are committed through Git and deployed by Vercel. Runtime authoring is deferred.
 - Related files: `docs/decisions/0002-mdx-over-database.md`
 
@@ -33,9 +33,6 @@ Record durable project decisions that future agents should not rediscover.
 
 ## Deferred Decisions
 
-- Package manager.
-- Exact Next.js scaffold location.
-- MDX processing library.
 - Analytics provider.
 - Affiliate network choices.
 - Commenting/community strategy.

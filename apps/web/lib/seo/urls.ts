@@ -23,9 +23,9 @@ function resolveSiteUrl(): string {
 
 export const siteUrl = resolveSiteUrl();
 
-export const isProductionSite =
-  process.env.VERCEL_ENV === "production" ||
-  (process.env.NODE_ENV === "production" && siteUrl !== localSiteUrl);
+export const isProductionSite = process.env.VERCEL_ENV
+  ? process.env.VERCEL_ENV === "production"
+  : process.env.NODE_ENV === "production" && siteUrl !== localSiteUrl;
 
 export function absoluteUrl(path = "/"): string {
   return new URL(path, siteUrl).toString();

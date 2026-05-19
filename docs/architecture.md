@@ -6,9 +6,9 @@ This project is a content-first static blog.
 
 ```text
 Next.js App Router
-  -> local MDX files in content/articles/
+  -> local MDX files in apps/web/content/articles/
   -> frontmatter metadata
-  -> static routes, metadata, sitemap, rss, robots
+  -> static routes, metadata, sitemap, robots
   -> deployed on Vercel
 ```
 
@@ -24,60 +24,60 @@ There is no backend, database, generated SDK, auth, queue, or Docker infrastruct
 - Hosting: Vercel.
 - Source control: GitHub.
 
-## Planned Repository Shape
+## Current Repository Shape
 
-The app has not been scaffolded yet. The expected shape after scaffold is:
+The app is scaffolded under `apps/web/`:
 
 ```text
-app/
-  (site)/
+apps/web/
+  app/
     page.tsx
     articles/
       page.tsx
       [slug]/
         page.tsx
-    category/
-      [slug]/
+    categories/
+      page.tsx
+      [category]/
         page.tsx
     tags/
-      [slug]/
+      page.tsx
+      [tag]/
         page.tsx
-  layout.tsx
-  sitemap.ts
-  robots.ts
-
-components/
-  layout/
-  article/
-  seo/
-  ui/
-
-content/
-  articles/
-    <article-slug>.mdx
-
-lib/
+    terms/
+    editorial-policy/
+    affiliate-disclosure/
+    sitemap.ts
+    robots.ts
+  components/
+    layout/
+    blog/
+    seo/
   content/
-  seo/
-  site/
-
-public/
-  images/
     articles/
+      <article-slug>.mdx
+  lib/
+    content/
+    seo/
+    site/
+  public/
+    images/
+      site/
 
 docs/
 templates/
 ```
 
-Folder names can change during scaffold, but the content rule should stay stable: article source files live under `content/articles/`.
+The content rule should stay stable: article source files live under `apps/web/content/articles/`.
 
 ## Boundaries
 
-- `content/articles/` owns article body content and frontmatter.
-- `public/images/articles/` owns article cover and inline images.
+- `apps/web/content/articles/` owns article body content and frontmatter.
+- `apps/web/public/` owns repo-managed site assets.
+- Cloudinary owns manually uploaded article/media delivery assets in the MVP.
 - `lib/content/` should own file loading, frontmatter parsing, slug lookup, sorting, draft filtering, and reading-time helpers.
-- `lib/seo/` should own metadata, canonical URLs, sitemap/rss helpers, and structured data builders.
-- `components/article/` should own article cards, article headers, table of contents, related articles, and content rendering wrappers.
+- `lib/seo/` should own metadata, canonical URLs, sitemap helpers, and structured data builders.
+- `components/blog/` should own article cards, article headers, related articles, and content rendering wrappers.
 - Pages should compose content helpers and components; avoid parsing frontmatter directly inside page components.
 
 ## Content Routing
@@ -89,8 +89,8 @@ Initial routes should be simple and SEO-friendly:
 | `/` | Homepage with featured posts, recent posts, and primary categories |
 | `/articles` | Article index |
 | `/articles/[slug]` | Article detail |
-| `/category/[slug]` | Category landing page |
-| `/tags/[slug]` | Tag landing page |
+| `/categories/[category]` | Category landing page |
+| `/tags/[tag]` | Tag landing page |
 | `/about` | Personal brand and site purpose |
 | `/contact` | Contact and collaboration path |
 | `/privacy-policy` | Required for analytics/ads readiness |
@@ -109,6 +109,8 @@ Every published article should include:
 - `publishedAt`
 - `updatedAt`
 - `coverImage`
+- `coverImageAlt`
+- `coverImageCredit`
 - `featured`
 - `draft`
 - `seoTitle`
@@ -118,7 +120,7 @@ Use `templates/article-frontmatter.md` as the source of truth until application 
 
 ## Draft Handling
 
-- `draft: true` articles must not be included in production lists, sitemap, rss, or internal related links.
+- `draft: true` articles must not be included in production lists, sitemap, taxonomy pages, or internal related links.
 - Draft behavior should be handled in the content helper layer, not repeated across pages.
 
 ## Deployment Flow

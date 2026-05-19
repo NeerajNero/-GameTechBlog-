@@ -31,6 +31,9 @@ Keep this file compact. It is the first context file an agent should read.
 | Articles | `apps/web/content/articles/` | Local MDX article files |
 | Image handling guide | `docs/image-handling.md` | Manual Cloudinary workflow and asset rules |
 | Image asset checklist | `docs/image-asset-checklist.md` | Manual cover image QA before upload/frontmatter updates |
+| Vercel launch checklist | `docs/deployment/vercel-launch-checklist.md` | Pre-launch deployment steps and Vercel settings |
+| Domain setup guide | `docs/deployment/domain-setup.md` | Custom domain, DNS, SSL, and Search Console flow |
+| Environment variables | `docs/deployment/env-vars.md` | Production and local environment variable rules |
 | Article image helpers | `apps/web/lib/content/images.ts` | Renderability checks for Cloudinary and local public images |
 | Content strategy | `docs/content-strategy.md` | Audience, pillars, article types |
 | SEO checklist | `docs/seo-checklist.md` | Publishing quality gate |
@@ -42,6 +45,7 @@ Keep this file compact. It is the first context file an agent should read.
 | Taxonomy/design report | `docs/features/reports/taxonomy-design.implementation.md` | Implementation summary and verification |
 | Article image asset plan | `docs/features/plans/article-image-asset-pass.plan.md` | Manual cover image plan for current articles |
 | Article image asset report | `docs/features/reports/article-image-asset-pass.implementation.md` | First Cloudinary cover image update report |
+| Pre-launch review report | `docs/features/reports/pre-launch-review.md` | Launch blockers, verification, and deployment readiness review |
 
 ## Current Architecture Notes
 
@@ -56,6 +60,8 @@ Keep this file compact. It is the first context file an agent should read.
 - SEO foundation implementation is complete.
 - Cloudinary image foundation implementation is complete.
 - Taxonomy/design polish is implemented with static category and tag routes.
+- Pre-launch deployment documentation is in place.
+- Launch is blocked until Vercel, custom domain, `NEXT_PUBLIC_SITE_URL`, Search Console, and final contact channel are configured.
 
 ## Read First For New Features
 
@@ -68,5 +74,5 @@ Keep this file compact. It is the first context file an agent should read.
 ## Last Updated
 
 - Date: 2026-05-19
-- Command: `/implement docs/features/plans/article-image-asset-pass.plan.md`
-- Source artifact: `docs/features/reports/article-image-asset-pass.implementation.md`
+- Command: `/review pre-launch`
+- Source artifact: `docs/features/reports/pre-launch-review.md`

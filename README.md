@@ -49,7 +49,7 @@ apps/web/content/articles/
 Publishing flow:
 
 ```text
-create MDX file -> add frontmatter -> add image -> commit -> push -> Vercel deploys
+create MDX file -> add frontmatter -> upload article image to Cloudinary if available -> paste image URL -> commit -> push -> Vercel deploys
 ```
 
 Deployment flow:
@@ -74,7 +74,9 @@ For this MVP:
 
 ## Current Status
 
-The MVP static blog scaffold lives in `apps/web/`.
+The MVP static blog, SEO foundation, Cloudinary image handling foundation, taxonomy/design polish, and first sample article cover images are implemented in `apps/web/`.
+
+Pre-launch work is still pending: Vercel project setup, final custom domain, production `NEXT_PUBLIC_SITE_URL`, public contact email/channel, Search Console, and later AdSense readiness.
 
 ## Local Development
 

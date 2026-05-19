@@ -17,13 +17,14 @@ create MDX file -> add frontmatter -> add image -> commit -> push -> Vercel depl
 Articles:
 
 ```text
-content/articles/<article-slug>.mdx
+apps/web/content/articles/<article-slug>.mdx
 ```
 
 Images:
 
 ```text
-public/images/articles/<article-slug>.jpg
+Cloudinary manual upload:
+gaming-tech-blog/articles/<article-slug>/cover.webp
 ```
 
 ## Frontmatter
@@ -51,7 +52,7 @@ Required fields:
 - Use lowercase slugs.
 - Use hyphens between words.
 - Keep filenames aligned with slugs.
-- Keep image filenames descriptive.
+- Keep Cloudinary image filenames descriptive.
 
 ## Review Before Publish
 
@@ -60,6 +61,8 @@ Required fields:
 - Add internal links where relevant.
 - Add affiliate disclosure if affiliate links are present.
 - Confirm the article is not thin or generic.
+- Confirm article images are original, licensed, or otherwise safe to use.
+- Confirm `coverImage`, `coverImageAlt`, and `coverImageCredit` are honest and non-placeholder values when an image is present.
 
 ## Updating Old Articles
 
