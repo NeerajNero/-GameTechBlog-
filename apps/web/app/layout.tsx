@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import "./globals.css";
 import { SiteShell } from "@/components/layout/site-shell";
 import { siteConfig } from "@/lib/site/config";
-import { isProductionSite, siteUrl } from "@/lib/seo/urls";
+import { isProductionIndexable, siteUrl } from "@/lib/seo/urls";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: siteUrl
   },
-  robots: isProductionSite
+  robots: isProductionIndexable()
     ? { index: true, follow: true }
     : { index: false, follow: false }
 };

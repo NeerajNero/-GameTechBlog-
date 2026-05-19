@@ -4,28 +4,51 @@ function normalizeSiteUrl(value: string): string {
   return value.replace(/\/+$/, "");
 }
 
-function resolveSiteUrl(): string {
+function withHttps(value: string): string {
+  if (/^https?:\/\//.test(value)) {
+    return value;
+  }
+
+  return `https://${value}`;
+}
+
+export function isProductionDeployment(): boolean {
+  return process.env.VERCEL_ENV === "production";
+}
+
+export function isPreviewDeployment(): boolean {
+  return process.env.VERCEL_ENV === "preview";
+}
+
+export function hasConfiguredProductionSiteUrl(): boolean {
+  return Boolean(process.env.NEXT_PUBLIC_SITE_URL?.trim());
+}
+
+export function getSiteUrl(): string {
   const configuredUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();
-  const isProductionDeployment = process.env.VERCEL_ENV === "production";
+  const vercelUrl = process.env.VERCEL_URL?.trim();
 
   if (configuredUrl) {
     return normalizeSiteUrl(configuredUrl);
   }
 
-  if (isProductionDeployment) {
-    throw new Error(
-      "NEXT_PUBLIC_SITE_URL must be set before launching the production Vercel deployment."
-    );
+  if (vercelUrl) {
+    return normalizeSiteUrl(withHttps(vercelUrl));
   }
 
   return localSiteUrl;
 }
 
-export const siteUrl = resolveSiteUrl();
+export function isProductionIndexable(): boolean {
+  return isProductionDeployment() && hasConfiguredProductionSiteUrl();
+}
 
-export const isProductionSite = process.env.VERCEL_ENV
-  ? process.env.VERCEL_ENV === "production"
-  : process.env.NODE_ENV === "production" && siteUrl !== localSiteUrl;
+export function isLaunchReady(): boolean {
+  return isProductionIndexable();
+}
+
+export const siteUrl = getSiteUrl();
+export const isProductionSite = isProductionIndexable();
 
 export function absoluteUrl(path = "/"): string {
   return new URL(path, siteUrl).toString();

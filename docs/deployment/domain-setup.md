@@ -2,18 +2,27 @@
 
 ## Steps
 
-1. Buy or choose the final domain.
-2. Add the domain to the Vercel project.
-3. Follow Vercel's DNS instructions for the domain registrar.
-4. Wait for DNS propagation and Vercel SSL issuance.
-5. Set `NEXT_PUBLIC_SITE_URL` in Vercel Production to the final HTTPS domain:
+1. Deploy temporarily to the generated Vercel URL if the final domain has not been purchased.
+2. Buy or choose the final domain.
+3. Add the domain to the Vercel project.
+4. Follow Vercel's DNS instructions for the domain registrar.
+5. Wait for DNS propagation and Vercel SSL issuance.
+6. Set `NEXT_PUBLIC_SITE_URL` in Vercel Production to the final HTTPS domain:
 
 ```text
 NEXT_PUBLIC_SITE_URL=https://your-final-domain.com
 ```
 
-6. Redeploy the production deployment after setting the environment variable.
-7. Verify canonical URLs, sitemap, and robots output use the final domain.
+7. Redeploy the production deployment after setting the environment variable.
+8. Verify canonical URLs, sitemap, and robots output use the final domain.
+
+## Before Domain Purchase
+
+- `NEXT_PUBLIC_SITE_URL` can remain unset.
+- Vercel should provide `VERCEL_URL`, which the app uses as a temporary canonical base.
+- The temporary deployment remains `noindex,nofollow`.
+- Do not submit the temporary URL to Search Console.
+- Do not apply for AdSense from the temporary URL.
 
 ## DNS Notes
 
@@ -43,5 +52,6 @@ After the domain is live:
 ## Deferred
 
 - AdSense application is deferred until there is enough original content.
+- Search Console is deferred until the custom domain is live.
 - Analytics is deferred.
 - Affiliate links and affiliate disclosures in articles are deferred until actual affiliate links are added.
