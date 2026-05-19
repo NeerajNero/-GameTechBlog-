@@ -2,7 +2,7 @@
 
 ## Status
 
-MVP static blog and SEO foundation slices are implemented under `apps/web/`.
+MVP static blog, SEO foundation, and Cloudinary image foundation slices are implemented under `apps/web/`. Taxonomy/design polish is planned and approved, but not implemented.
 
 ## Completed
 
@@ -22,6 +22,12 @@ MVP static blog and SEO foundation slices are implemented under `apps/web/`.
 - SEO foundation approval created at `docs/features/approvals/seo-foundation.approval.md`.
 - SEO foundation implemented with sitemap, robots, metadata/canonical helpers, JSON-LD, and static trust/policy pages.
 - SEO verification passed with lint, typecheck, build, dev-server smoke checks, and JSON-LD inspection.
+- Cloudinary image foundation classification, plan, and approval artifacts created.
+- Manual Cloudinary delivery workflow documented in `docs/image-handling.md`.
+- Next.js image handling now allows Cloudinary delivery URLs and avoids rendering placeholder or missing cover images.
+- Taxonomy/design classification created at `docs/features/classifications/taxonomy-design.classification.md`.
+- Taxonomy/design implementation plan created at `docs/features/plans/taxonomy-design.plan.md`.
+- Taxonomy/design approval created at `docs/features/approvals/taxonomy-design.approval.md`.
 
 ## Not Started
 
@@ -29,20 +35,22 @@ MVP static blog and SEO foundation slices are implemented under `apps/web/`.
 - Custom domain setup.
 - Search Console setup.
 - AdSense application.
-- Real article cover image assets.
+- Real article cover image asset selection and upload.
 - RSS feed.
-- Category and tag pages.
+- Taxonomy/design implementation for category and tag pages.
 - Real production `NEXT_PUBLIC_SITE_URL` configuration on Vercel.
 - Google Rich Results Test validation after deployment.
 
 ## Next Recommended Task
 
-Plan the next taxonomy/design slice for category and tag pages, or prepare the Vercel/custom-domain launch checklist.
+Implement the approved taxonomy/design slice from `docs/features/approvals/taxonomy-design.approval.md`.
 
 ## Known Constraints
 
 - This workspace is a Git repository.
 - Backend, database, Docker, auth, CMS, admin, payments, and user accounts remain deferred.
-- Article cover image files are placeholders for a later asset pass.
-- RSS, category/tag pages, ads, analytics, affiliate links, backend, database, auth, CMS, and Docker remain deferred.
+- Article cover images are intentionally empty until real Cloudinary assets are selected and uploaded manually.
+- Cloudinary is delivery-only in MVP; no upload/admin system, SDK, signed uploads, credentials, or backend routes are included.
+- RSS, ads, analytics, affiliate links, backend, database, auth, CMS, and Docker remain deferred.
+- Category/tag pages are approved for the next frontend/static implementation slice.
 - Production Vercel must set `NEXT_PUBLIC_SITE_URL` before public launch.

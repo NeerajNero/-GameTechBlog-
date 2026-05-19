@@ -1,8 +1,7 @@
-import fs from "node:fs";
-import path from "node:path";
 import type { Article } from "@/lib/content/types";
 import { siteConfig } from "@/lib/site/config";
 import { absoluteUrl } from "@/lib/seo/urls";
+import { getRenderableImageSrc } from "@/lib/content/images";
 
 type JsonValue =
   | string
@@ -40,16 +39,13 @@ function removeEmptyValues(value: unknown): unknown {
 }
 
 function safeImageUrl(imagePath?: string): string | undefined {
-  if (
-    !imagePath ||
-    imagePath.includes("placeholder") ||
-    !imagePath.startsWith("/") ||
-    !fs.existsSync(path.join(process.cwd(), "public", imagePath))
-  ) {
+  const src = getRenderableImageSrc(imagePath);
+
+  if (!src) {
     return undefined;
   }
 
-  return absoluteUrl(imagePath);
+  return src.startsWith("http") ? src : absoluteUrl(src);
 }
 
 export function sanitizeJsonLd(value: JsonInput): JsonRecord {

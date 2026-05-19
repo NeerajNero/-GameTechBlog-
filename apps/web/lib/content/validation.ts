@@ -1,4 +1,5 @@
 import type { ArticleFrontmatter } from "@/lib/content/types";
+import { isRenderableImage } from "@/lib/content/images";
 
 const requiredStringFields: Array<keyof ArticleFrontmatter> = [
   "title",
@@ -8,9 +9,14 @@ const requiredStringFields: Array<keyof ArticleFrontmatter> = [
   "author",
   "publishedAt",
   "updatedAt",
-  "coverImage",
   "seoTitle",
   "seoDescription"
+];
+
+const optionalStringFields: Array<keyof ArticleFrontmatter> = [
+  "coverImage",
+  "coverImageAlt",
+  "coverImageCredit"
 ];
 
 function isRecord(value: unknown): value is Record<string, unknown> {
@@ -33,6 +39,14 @@ export function validateFrontmatter(
     }
   }
 
+  for (const field of optionalStringFields) {
+    if (value[field] !== undefined && typeof value[field] !== "string") {
+      throw new Error(
+        `Invalid frontmatter in ${filename}: "${field}" must be a string when present.`
+      );
+    }
+  }
+
   if (!Array.isArray(value.tags) || value.tags.some((tag) => typeof tag !== "string")) {
     throw new Error(`Invalid frontmatter in ${filename}: "tags" must be a string array.`);
   }
@@ -43,6 +57,14 @@ export function validateFrontmatter(
 
   if (typeof value.draft !== "boolean") {
     throw new Error(`Invalid frontmatter in ${filename}: "draft" must be a boolean.`);
+  }
+
+  if (isRenderableImage(value.coverImage as string | undefined)) {
+    if (typeof value.coverImageAlt !== "string" || value.coverImageAlt.trim() === "") {
+      throw new Error(
+        `Invalid frontmatter in ${filename}: "coverImageAlt" is required when "coverImage" points to a real image.`
+      );
+    }
   }
 
   return value as ArticleFrontmatter;
