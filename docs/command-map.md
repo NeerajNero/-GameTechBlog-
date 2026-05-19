@@ -85,11 +85,42 @@ These are human or agent workflow steps, not package scripts:
 ```text
 1. Create apps/web/content/articles/<article-slug>.mdx
 2. Add required frontmatter from templates/article-frontmatter.md
-3. Add cover image under apps/web/public/images/articles/
-4. Run local checks
-5. Commit changes
-6. Push to GitHub
-7. Vercel deploys
+3. Upload article/media image manually to Cloudinary when a safe image exists
+4. Paste the Cloudinary secure URL into coverImage with honest alt text and credit
+5. Run local checks
+6. Commit changes
+7. Push to GitHub
+8. Vercel deploys
+```
+
+Article image workflow details live in `docs/image-handling.md` and `docs/image-asset-checklist.md`. Site-level assets can still live in the repo under `apps/web/public/`.
+
+## Pre-Launch Verification
+
+Run before each deployment candidate:
+
+```bash
+pnpm --dir apps/web lint
+pnpm --dir apps/web typecheck
+pnpm --dir apps/web build
+pnpm --dir apps/web dev --hostname 127.0.0.1
+```
+
+Smoke check:
+
+```text
+/
+/articles
+/articles/elden-ring-beginner-tips-first-time-souls-players
+/categories
+/categories/gaming-guides
+/tags
+/tags/elden-ring
+/about
+/contact
+/privacy-policy
+/sitemap.xml
+/robots.txt
 ```
 
 ## Feature Flow

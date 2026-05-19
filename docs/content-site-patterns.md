@@ -48,7 +48,9 @@ Pages should call helpers instead of reading files directly.
 
 ## Asset Pattern
 
-- Store public article images under `public/images/articles/`.
-- Use descriptive filenames matching article slug.
-- Track alt text in content or frontmatter.
-- Prefer real product/setup images or clear generated bitmap images over generic visuals.
+- Store repo-managed site assets under `apps/web/public/`.
+- Store article/media assets in Cloudinary after manual upload.
+- Use Cloudinary folder paths like `gaming-tech-blog/articles/<article-slug>/cover.webp`.
+- Track article cover image URL, alt text, and credit in frontmatter.
+- Prefer original screenshots/photos created by the site owner over generic visuals.
+- If no safe image exists, leave the fallback UI instead of using risky copyrighted images.

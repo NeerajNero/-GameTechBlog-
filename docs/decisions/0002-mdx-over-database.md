@@ -12,7 +12,7 @@ The MVP needs articles, metadata, images, SEO fields, and a repeatable publishin
 Store articles as local `.mdx` files under:
 
 ```text
-content/articles/
+apps/web/content/articles/
 ```
 
 Each article uses frontmatter metadata.
@@ -22,7 +22,7 @@ Each article uses frontmatter metadata.
 - Content is versioned in Git.
 - Vercel can deploy content changes on push.
 - No database or CMS is needed.
-- Article metadata can drive lists, category pages, tags, SEO metadata, sitemap, RSS, and social cards.
+- Article metadata can drive lists, category pages, tags, SEO metadata, sitemap, and social cards.
 
 ## Deferred
 

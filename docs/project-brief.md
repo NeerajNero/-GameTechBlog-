@@ -28,9 +28,9 @@ Deferred does not mean never. These can be revisited after the blog proves a con
 
 ## Scope
 
-- First vertical slice: A static Next.js App Router blog shell with MDX article support, article listing, article detail pages, category/tag navigation, SEO metadata, sitemap/rss foundations, and a small initial content set.
+- First vertical slice: A static Next.js App Router blog shell with MDX article support, article listing, article detail pages, category/tag navigation, SEO metadata, sitemap/robots foundations, and a small initial content set.
 - Must-have features:
-  - Local MDX articles under `content/articles/`.
+  - Local MDX articles under `apps/web/content/articles/`.
   - Frontmatter-driven article metadata.
   - Content-first homepage and category pages.
   - SEO-friendly routes, metadata, sitemap, robots, and structured data.
@@ -74,8 +74,8 @@ Deferred does not mean never. These can be revisited after the blog proves a con
 
 ## Stack
 
-- Package manager: decide when scaffolding the app.
-- Monorepo tool: none planned for MVP unless the starter-pack structure later requires it.
+- Package manager: pnpm.
+- Monorepo tool: pnpm workspace.
 - Backend: none in MVP.
 - Web frontend: Next.js App Router, React, TypeScript, Tailwind CSS, MDX.
 - UI system: Tailwind first; shadcn/ui later when component needs are clear.
@@ -102,7 +102,7 @@ Initial content entities are file-based, not database-backed.
 Articles live in:
 
 ```text
-content/articles/
+apps/web/content/articles/
 ```
 
 Each article is a `.mdx` file with frontmatter. Example fields:
@@ -120,7 +120,9 @@ tags:
 author: "Neeraj Kumar Sharma"
 publishedAt: "2026-05-19"
 updatedAt: "2026-05-19"
-coverImage: "/images/articles/best-ssd-upgrades-pc-gaming-india.jpg"
+coverImage: "https://res.cloudinary.com/<cloud-name>/image/upload/.../cover.webp"
+coverImageAlt: "An SSD setup for managing a large gaming library"
+coverImageCredit: "Photo by site owner"
 featured: true
 draft: false
 seoTitle: "Best SSD Upgrades for PC Gaming in India"
@@ -131,7 +133,7 @@ seoDescription: "Compare practical SSD upgrade options for Indian PC gamers, inc
 ## Publishing Flow
 
 ```text
-create MDX file -> add frontmatter -> add image -> commit -> push -> Vercel deploys
+create MDX file -> add frontmatter -> upload safe image to Cloudinary if available -> paste image URL -> commit -> push -> Vercel deploys
 ```
 
 ## Deployment Flow
@@ -156,7 +158,7 @@ No runtime auth or roles are required for the MVP.
 | GitHub | Source control and deployment trigger | Set up when repo is initialized |
 | Vercel | Hosting and previews | Set up after app scaffold |
 | Google Search Console | Indexing and search health | Add after custom domain is live |
-| Google Analytics or privacy-friendly analytics | Traffic analysis | Decide before launch |
+| Google Analytics or privacy-friendly analytics | Traffic analysis | Deferred; decide after launch basics are stable |
 | Google AdSense | Display ads | Apply after enough original content and policy pages exist |
 | Affiliate networks | Product monetization | Add disclosures before affiliate links go live |
 
@@ -169,10 +171,6 @@ No runtime auth or roles are required for the MVP.
 
 ## Deferred Decisions
 
-- Package manager.
-- Exact Next.js project folder layout.
-- MDX library choice.
 - Analytics provider.
-- Image generation and asset sourcing workflow.
 - Affiliate programs and disclosure wording.
 - Whether to add a lightweight CMS later.

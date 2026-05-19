@@ -55,6 +55,7 @@ export function ArticleCard({
             readingTime={article.readingTime}
           />
           <TagList tags={article.tags} />
+          <p className="text-sm font-bold text-circuit group-hover:text-ink">Read guide</p>
         </div>
       </Link>
     </article>
