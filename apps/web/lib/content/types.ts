@@ -7,7 +7,9 @@ export type ArticleFrontmatter = {
   author: string;
   publishedAt: string;
   updatedAt: string;
-  coverImage: string;
+  coverImage?: string;
+  coverImageAlt?: string;
+  coverImageCredit?: string;
   featured: boolean;
   draft: boolean;
   seoTitle: string;

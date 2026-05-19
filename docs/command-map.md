@@ -27,6 +27,57 @@ pnpm --dir apps/web typecheck
 pnpm --dir apps/web build
 ```
 
+## SEO Foundation Verification
+
+After implementing the approved SEO foundation slice:
+
+```bash
+pnpm --dir apps/web lint
+pnpm --dir apps/web typecheck
+pnpm --dir apps/web build
+pnpm --dir apps/web dev --hostname 127.0.0.1
+```
+
+Smoke check:
+
+```text
+/
+/articles
+/articles/elden-ring-beginner-tips-first-time-souls-players
+/robots.txt
+/sitemap.xml
+/about
+/contact
+/privacy-policy
+/terms
+/editorial-policy
+/affiliate-disclosure
+```
+
+## Taxonomy Design Verification
+
+After implementing the approved taxonomy/design slice:
+
+```bash
+pnpm --dir apps/web lint
+pnpm --dir apps/web typecheck
+pnpm --dir apps/web build
+pnpm --dir apps/web dev --hostname 127.0.0.1
+```
+
+Smoke check:
+
+```text
+/
+/articles
+/articles/elden-ring-beginner-tips-first-time-souls-players
+/categories
+/categories/gaming-guides
+/tags
+/tags/elden-ring
+/sitemap.xml
+```
+
 ## Content Workflow Commands
 
 These are human or agent workflow steps, not package scripts:
