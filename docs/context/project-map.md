@@ -29,6 +29,7 @@ Keep this file compact. It is the first context file an agent should read.
 | Taxonomy helpers | `apps/web/lib/content/taxonomy.ts` | Category/tag collections, slug lookup, related article helpers |
 | SEO helpers | `apps/web/lib/seo/` | Metadata, URL helpers, structured data |
 | Articles | `apps/web/content/articles/` | Local MDX article files |
+| Brand assets | `apps/web/public/brand/`, `apps/web/app/icon.png` | Local GameTechGuides logo and browser/app icon assets |
 | Image handling guide | `docs/image-handling.md` | Manual Cloudinary workflow and asset rules |
 | Image asset checklist | `docs/image-asset-checklist.md` | Manual cover image QA before upload/frontmatter updates |
 | Vercel launch checklist | `docs/deployment/vercel-launch-checklist.md` | Pre-launch deployment steps and Vercel settings |
@@ -47,6 +48,7 @@ Keep this file compact. It is the first context file an agent should read.
 | Article image asset report | `docs/features/reports/article-image-asset-pass.implementation.md` | First Cloudinary cover image update report |
 | Pre-launch review report | `docs/features/reports/pre-launch-review.md` | Launch blockers, verification, and deployment readiness review |
 | Domain SEO branding report | `docs/features/reports/domain-seo-branding-inspection.md` | gametechguides.com SEO/env behavior and GameTechGuides branding inspection |
+| Brand assets report | `docs/features/reports/brand-assets-logo-favicon.md` | Local logo/favicon implementation and verification |
 
 ## Current Architecture Notes
 
@@ -55,6 +57,7 @@ Keep this file compact. It is the first context file an agent should read.
 - The MVP is a static content site with file-based MDX content.
 - Backend, database, admin panel, CMS, auth, payments, accounts, and Docker are deferred.
 - Site assets stay in the repo.
+- Core GameTechGuides brand assets are local repo files, not Cloudinary.
 - Article/media images use manually uploaded Cloudinary delivery URLs.
 - Article cover images for the first three sample articles use Cloudinary delivery URLs.
 - The published Total Overdose opinion article also uses a Cloudinary cover image URL.
@@ -77,5 +80,5 @@ Keep this file compact. It is the first context file an agent should read.
 ## Last Updated
 
 - Date: 2026-05-26
-- Command: production-domain SEO and branding inspection
-- Source artifact: `docs/features/reports/domain-seo-branding-inspection.md`
+- Command: brand assets logo/favicon implementation
+- Source artifact: `docs/features/reports/brand-assets-logo-favicon.md`

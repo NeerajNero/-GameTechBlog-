@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { siteConfig } from "@/lib/site/config";
 
@@ -11,12 +12,21 @@ export function SiteHeader() {
   return (
     <header className="border-b border-slate-200 bg-white/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center gap-3">
-          <span className="grid h-9 w-9 place-items-center rounded-md bg-ink text-sm font-black text-white">
-            GT
+        <Link href="/" className="flex min-w-0 items-center gap-3" aria-label={`${siteConfig.name} home`}>
+          <span className="relative grid h-10 w-10 shrink-0 place-items-center overflow-hidden rounded-md bg-ink sm:h-9 sm:w-9">
+            <Image
+              src={siteConfig.logoIcon}
+              alt=""
+              fill
+              sizes="40px"
+              className="object-cover"
+              priority
+            />
           </span>
-          <span>
-            <span className="block text-base font-black text-ink">{siteConfig.name}</span>
+          <span className="min-w-0">
+            <span className="block text-base font-black leading-tight text-ink">
+              {siteConfig.name}
+            </span>
             <span className="hidden text-xs font-medium text-slate-500 sm:block">
               Gaming guides, hardware, and setup notes
             </span>

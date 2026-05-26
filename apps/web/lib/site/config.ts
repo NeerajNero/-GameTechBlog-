@@ -7,5 +7,7 @@ export const siteConfig = {
   url: siteUrl,
   author: "Neeraj Kumar Sharma",
   authorType: "Person",
+  logoWide: "/brand/logo-wide.png",
+  logoIcon: "/brand/logo-icon.png",
   defaultOgImage: "/images/og-default.jpg"
 };
