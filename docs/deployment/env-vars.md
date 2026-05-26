@@ -4,15 +4,15 @@
 
 | Variable | Required | Example | Purpose |
 | --- | --- | --- | --- |
-| `NEXT_PUBLIC_SITE_URL` | yes before final domain launch | `https://your-final-domain.com` | Canonical URLs, sitemap URLs, metadataBase, robots sitemap URL, and JSON-LD URL values |
+| `NEXT_PUBLIC_SITE_URL` | yes before final domain launch | `https://gametechguides.com` | Canonical URLs, sitemap URLs, metadataBase, robots sitemap URL, and JSON-LD URL values |
 
 Rules:
 
 - A temporary Vercel deployment can build without `NEXT_PUBLIC_SITE_URL`.
 - When `NEXT_PUBLIC_SITE_URL` is missing, the app uses `https://${VERCEL_URL}` on Vercel or `http://localhost:3000` locally.
 - Missing `NEXT_PUBLIC_SITE_URL` keeps pages `noindex,nofollow`.
-- Set `NEXT_PUBLIC_SITE_URL` in Vercel Production before the final public/domain launch.
-- Use the final HTTPS custom domain.
+- Set `NEXT_PUBLIC_SITE_URL=https://gametechguides.com` in Vercel Production before the final public/domain launch.
+- Use the final HTTPS custom domain: `https://gametechguides.com`.
 - Do not use a fake production domain.
 - Do not include a trailing slash; the app normalizes trailing slashes if present.
 - Production indexing is enabled only when `VERCEL_ENV=production` and `NEXT_PUBLIC_SITE_URL` is set.
@@ -39,7 +39,7 @@ NEXT_PUBLIC_SITE_URL=http://localhost:3000
 
 ## Temporary Vercel URL
 
-No custom domain has been purchased yet. It is acceptable to deploy to the generated Vercel URL first for testing.
+The final domain is `https://gametechguides.com`. Temporary Vercel URLs are still acceptable for deployment testing.
 
 Expected temporary behavior:
 

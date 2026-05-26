@@ -2,7 +2,7 @@
 
 ## Status
 
-MVP static blog, SEO foundation, Cloudinary image foundation, taxonomy/design polish, the first article image asset pass, and pre-launch documentation are implemented under `apps/web/` and `docs/`.
+MVP static blog, SEO foundation, Cloudinary image foundation, taxonomy/design polish, the first article image asset pass, pre-launch documentation, and the GameTechGuides production-domain branding pass are implemented under `apps/web/` and `docs/`.
 
 ## Completed
 
@@ -40,29 +40,30 @@ MVP static blog, SEO foundation, Cloudinary image foundation, taxonomy/design po
 - Pre-launch lint, typecheck, build, smoke checks, sitemap/robots checks, and JSON-LD/canonical inspection passed locally.
 - Vercel pre-domain deployment fix implemented so missing `NEXT_PUBLIC_SITE_URL` no longer blocks temporary Vercel builds.
 - Vercel production/preview build simulations passed after the fix.
+- Production-domain SEO and branding inspection completed for `https://gametechguides.com`.
+- Site branding changed from GameTechBlog to GameTechGuides in shared config, user-facing trust pages, package metadata, and article publisher JSON-LD.
 
 ## Not Started
 
-- Vercel project setup and temporary Vercel URL deployment.
-- Custom domain setup.
+- Confirm Vercel Production has `NEXT_PUBLIC_SITE_URL=https://gametechguides.com`.
+- Confirm the connected `gametechguides.com` domain points to the latest Production deployment.
 - Search Console setup.
 - AdSense application.
 - RSS feed.
-- Real production `NEXT_PUBLIC_SITE_URL` configuration on Vercel after a final domain is purchased.
 - Google Rich Results Test validation after deployment.
 
 ## Launch Blockers
 
 - Final public contact email or contact channel must be added before launch.
-- Vercel project has not been created.
-- Custom domain has not been purchased or connected.
-- Production `NEXT_PUBLIC_SITE_URL` has not been set in Vercel because the final domain is pending.
+- Vercel Production `NEXT_PUBLIC_SITE_URL=https://gametechguides.com` must be confirmed in the dashboard.
+- Production must be redeployed after any Vercel env change.
+- `gametechguides.com` must point to the latest Production deployment.
 - Search Console has not been configured.
 - Policy pages should be reviewed once the final domain/contact channel is known.
 
 ## Next Recommended Task
 
-Push the Vercel pre-domain deployment fix, redeploy to the temporary Vercel URL, and confirm the generated URL remains noindex before buying/connecting a custom domain.
+Set or confirm `NEXT_PUBLIC_SITE_URL=https://gametechguides.com` in Vercel Production, trigger a fresh Production redeploy, then inspect live source on `https://gametechguides.com` for canonical, Open Graph, robots metadata, sitemap, and GameTechGuides branding.
 
 ## Known Constraints
 
@@ -73,5 +74,5 @@ Push the Vercel pre-domain deployment fix, redeploy to the temporary Vercel URL,
 - Cloudinary is delivery-only in MVP; no upload/admin system, SDK, signed uploads, credentials, or backend routes are included.
 - RSS, ads, analytics, affiliate links, backend, database, auth, CMS, and Docker remain deferred.
 - Temporary Vercel deployment can build without `NEXT_PUBLIC_SITE_URL` and should remain noindex.
-- Production Vercel must set `NEXT_PUBLIC_SITE_URL` before final public/domain launch.
+- Production Vercel must set `NEXT_PUBLIC_SITE_URL=https://gametechguides.com` before final public/domain launch.
 - The contact page currently uses a launch-time placeholder until a public contact email/channel is finalized.

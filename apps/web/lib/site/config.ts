@@ -1,7 +1,7 @@
 import { siteUrl } from "@/lib/seo/urls";
 
 export const siteConfig = {
-  name: "GameTechBlog",
+  name: "GameTechGuides",
   description:
     "Practical gaming and tech guides for PC, console, streaming, and hardware decisions.",
   url: siteUrl,

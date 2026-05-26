@@ -4,7 +4,7 @@ import { createPageMetadata } from "@/lib/seo/metadata";
 export const metadata = createPageMetadata({
   title: "Contact",
   description:
-    "Contact GameTechBlog for corrections, article suggestions, and collaboration queries.",
+    "Contact GameTechGuides for corrections, article suggestions, and collaboration queries.",
   path: "/contact"
 });
 

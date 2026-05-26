@@ -4,7 +4,7 @@ import { createPageMetadata } from "@/lib/seo/metadata";
 export const metadata = createPageMetadata({
   title: "About",
   description:
-    "Learn what GameTechBlog covers: practical gaming guides, hardware setup advice, and tech notes for everyday players.",
+    "Learn what GameTechGuides covers: practical gaming guides, hardware setup advice, and tech notes for everyday players.",
   path: "/about"
 });
 
@@ -13,9 +13,9 @@ export default function AboutPage() {
     <StaticPage
       eyebrow="About"
       title="Practical gaming and tech guidance"
-      description="GameTechBlog is a content-first site for players who want useful setup advice without hype.">
+      description="GameTechGuides is a content-first site for players who want useful setup advice without hype.">
       <p>
-        GameTechBlog focuses on PC gaming, console gaming, streaming setups, routers,
+        GameTechGuides focuses on PC gaming, console gaming, streaming setups, routers,
         SSDs, controllers, monitors, gaming laptops, cooling, and practical hardware
         choices.
       </p>
