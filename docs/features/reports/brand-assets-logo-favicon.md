@@ -19,8 +19,8 @@ Article/media images remain on Cloudinary. Cloudinary image support was not remo
 - Added `logoWide` and `logoIcon` paths to `siteConfig`.
 - Updated the site header to render local brand imagery:
   - square icon from `/brand/logo-icon.png`
-  - wide logo from `/brand/logo-wide.png`
   - visible text brand remains `GameTechGuides`
+- `logo-wide.png` remains stored locally for future use, but is not rendered in the header.
 - Added browser/app icon support with the Next.js App Router icon convention:
   - `apps/web/app/icon.png`
   - served as `/icon.png`
@@ -73,7 +73,8 @@ Passed:
 Source inspection confirmed:
 
 - Metadata still uses `GameTechGuides`.
-- Header source includes local `/brand` imagery.
+- Header source includes local `/brand/logo-icon.png` imagery.
+- Header source does not include `/brand/logo-wide.png`.
 - Browser icon metadata points to `/icon.png`.
 - Apple icon metadata points to `/brand/logo-icon.png`.
 - The article page still renders Cloudinary article/media image URLs.
@@ -81,4 +82,5 @@ Source inspection confirmed:
 ## Issues And Deviations
 
 - Used `apps/web/app/icon.png` instead of `apps/web/public/favicon.ico`.
+- `logo-wide.png` appears to have a visible checkerboard-style background baked into the image and should be re-exported or cleaned before public use.
 - `next start` emitted the existing optional production warning that `sharp` is recommended for image optimization. No package was added because this task explicitly disallowed adding packages.
