@@ -2,7 +2,7 @@
 
 ## Status
 
-MVP static blog, SEO foundation, Cloudinary image foundation, taxonomy/design polish, the first article image asset pass, pre-launch documentation, and the GameTechGuides production-domain branding pass are implemented under `apps/web/` and `docs/`.
+MVP static blog, SEO foundation, Cloudinary image foundation, taxonomy/design polish, the first article image asset pass, pre-launch documentation, the GameTechGuides production-domain branding pass, and local brand logo/favicon assets are implemented under `apps/web/` and `docs/`.
 
 ## Completed
 
@@ -42,6 +42,9 @@ MVP static blog, SEO foundation, Cloudinary image foundation, taxonomy/design po
 - Vercel production/preview build simulations passed after the fix.
 - Production-domain SEO and branding inspection completed for `https://gametechguides.com`.
 - Site branding changed from GameTechBlog to GameTechGuides in shared config, user-facing trust pages, package metadata, and article publisher JSON-LD.
+- Local GameTechGuides brand assets are stored under `apps/web/public/brand/`.
+- Header branding now uses local logo/icon imagery while keeping visible `GameTechGuides` text.
+- Browser/app icon support uses the Next.js App Router `apps/web/app/icon.png` convention.
 
 ## Not Started
 
@@ -71,6 +74,7 @@ Set or confirm `NEXT_PUBLIC_SITE_URL=https://gametechguides.com` in Vercel Produ
 - Backend, database, Docker, auth, CMS, admin, payments, and user accounts remain deferred.
 - Article cover images for the first three sample articles use Cloudinary delivery URLs.
 - Published Total Overdose article also uses a Cloudinary delivery URL for cover image.
+- Core brand assets use local repo files under `apps/web/public/brand/` and `apps/web/app/icon.png`.
 - Cloudinary is delivery-only in MVP; no upload/admin system, SDK, signed uploads, credentials, or backend routes are included.
 - RSS, ads, analytics, affiliate links, backend, database, auth, CMS, and Docker remain deferred.
 - Temporary Vercel deployment can build without `NEXT_PUBLIC_SITE_URL` and should remain noindex.
