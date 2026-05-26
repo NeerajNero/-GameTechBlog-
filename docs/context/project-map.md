@@ -46,6 +46,7 @@ Keep this file compact. It is the first context file an agent should read.
 | Article image asset plan | `docs/features/plans/article-image-asset-pass.plan.md` | Manual cover image plan for current articles |
 | Article image asset report | `docs/features/reports/article-image-asset-pass.implementation.md` | First Cloudinary cover image update report |
 | Pre-launch review report | `docs/features/reports/pre-launch-review.md` | Launch blockers, verification, and deployment readiness review |
+| Domain SEO branding report | `docs/features/reports/domain-seo-branding-inspection.md` | gametechguides.com SEO/env behavior and GameTechGuides branding inspection |
 
 ## Current Architecture Notes
 
@@ -62,7 +63,8 @@ Keep this file compact. It is the first context file an agent should read.
 - Cloudinary image foundation implementation is complete.
 - Taxonomy/design polish is implemented with static category and tag routes.
 - Pre-launch deployment documentation is in place.
-- Launch is blocked until Vercel, custom domain, `NEXT_PUBLIC_SITE_URL`, Search Console, and final contact channel are configured.
+- Final production domain is `https://gametechguides.com`.
+- Launch is blocked until Vercel Production has `NEXT_PUBLIC_SITE_URL=https://gametechguides.com`, the latest Production deployment is live on the domain, Search Console is configured, and the final contact channel is configured.
 
 ## Read First For New Features
 
@@ -74,6 +76,6 @@ Keep this file compact. It is the first context file an agent should read.
 
 ## Last Updated
 
-- Date: 2026-05-19
-- Command: `/review pre-launch`
-- Source artifact: `docs/features/reports/pre-launch-review.md`
+- Date: 2026-05-26
+- Command: production-domain SEO and branding inspection
+- Source artifact: `docs/features/reports/domain-seo-branding-inspection.md`

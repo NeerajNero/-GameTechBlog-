@@ -85,6 +85,10 @@ export function createArticleJsonLd(article: Article): JsonRecord {
       "@type": "Person",
       name: article.author
     },
+    publisher: {
+      "@type": "Organization",
+      name: siteConfig.name
+    },
     image: safeImageUrl(article.coverImage),
     mainEntityOfPage: {
       "@type": "WebPage",

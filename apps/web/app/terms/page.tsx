@@ -4,7 +4,7 @@ import { createPageMetadata } from "@/lib/seo/metadata";
 export const metadata = createPageMetadata({
   title: "Terms",
   description:
-    "Basic terms for reading and using GameTechBlog gaming and tech guide content.",
+    "Basic terms for reading and using GameTechGuides gaming and tech guide content.",
   path: "/terms"
 });
 
@@ -13,7 +13,7 @@ export default function TermsPage() {
     <StaticPage
       eyebrow="Terms"
       title="Terms of use"
-      description="GameTechBlog content is informational and should be checked against your own hardware, software, budget, and availability.">
+      description="GameTechGuides content is informational and should be checked against your own hardware, software, budget, and availability.">
       <p>
         Articles are provided for general information. They are not a guarantee of
         pricing, stock, compatibility, performance, or results.

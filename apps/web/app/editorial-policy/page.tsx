@@ -4,7 +4,7 @@ import { createPageMetadata } from "@/lib/seo/metadata";
 export const metadata = createPageMetadata({
   title: "Editorial Policy",
   description:
-    "How GameTechBlog approaches practical gaming and tech guides, updates, and corrections.",
+    "How GameTechGuides approaches practical gaming and tech guides, updates, and corrections.",
   path: "/editorial-policy"
 });
 
