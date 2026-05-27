@@ -111,12 +111,18 @@ Every published article should include:
 - `coverImage`
 - `coverImageAlt`
 - `coverImageCredit`
+- `quickTake` (optional)
 - `featured`
 - `draft`
 - `seoTitle`
 - `seoDescription`
 
 Use `templates/article-frontmatter.md` as the source of truth until application validation exists.
+
+Future articles should follow the scan-friendly MDX body pattern documented in
+`docs/content-site-patterns.md`: short intro, `ArticleQuickTake`, visible main
+value, `ArticleImage` when relevant, optional `ArticleReadMore` sections, and
+`ArticleVerdict` for reviews/opinions/impressions.
 
 ## Draft Handling
 

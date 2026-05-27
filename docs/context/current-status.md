@@ -2,7 +2,7 @@
 
 ## Status
 
-MVP static blog, SEO foundation, Cloudinary image foundation, taxonomy/design polish, the first article image asset pass, pre-launch documentation, the GameTechGuides production-domain branding pass, local brand logo/favicon assets, article detail design polish, and scan-friendly inline article components are implemented under `apps/web/` and `docs/`.
+MVP static blog, SEO foundation, Cloudinary image foundation, taxonomy/design polish, the first article image asset pass, pre-launch documentation, the GameTechGuides production-domain branding pass, local brand logo/favicon assets, article detail design polish, scan-friendly inline article components, and future article pattern documentation are implemented under `apps/web/` and `docs/`.
 
 ## Completed
 
@@ -45,8 +45,10 @@ MVP static blog, SEO foundation, Cloudinary image foundation, taxonomy/design po
 - Local GameTechGuides brand assets are stored under `apps/web/public/brand/`.
 - Header branding uses the local square icon, visible `GameTechGuides` text, and a compact subtitle; the wide logo is not used in the header.
 - Browser/app icon support uses the Next.js App Router `apps/web/app/icon.png` convention.
+- Favicon compatibility now includes stable `/favicon.ico`, `/icon.png`, and `/apple-icon.png` paths.
 - Article detail pages use a polished hero, cinematic cover frame, quick-take box, richer MDX typography, optional `ArticleCallout`, `ArticleHighlight`, `ArticlePullQuote`, `ArticleQuickTake`, `ArticleReadMore`, and `ArticleVerdict` MDX components, and improved related article presentation.
 - The Forza Horizon 6 hands-on article uses the scan-friendly MDX component pattern with a quick take, expandable detail sections, and final verdict block.
+- Article templates and content/SEO workflow docs now point future articles toward the scan-friendly pattern.
 
 ## Not Started
 
@@ -77,6 +79,7 @@ Set or confirm `NEXT_PUBLIC_SITE_URL=https://gametechguides.com` in Vercel Produ
 - Article cover images for the first three sample articles use Cloudinary delivery URLs.
 - Published Total Overdose article also uses a Cloudinary delivery URL for cover image.
 - Core brand assets use local repo files under `apps/web/public/brand/` and `apps/web/app/icon.png`.
+- Stable favicon assets use `apps/web/public/favicon.ico`, `apps/web/app/icon.png`, and `apps/web/app/apple-icon.png`.
 - The wide logo asset appears to have a checkerboard-style background and should be re-exported or cleaned before public use.
 - Cloudinary is delivery-only in MVP; no upload/admin system, SDK, signed uploads, credentials, or backend routes are included.
 - RSS, ads, analytics, affiliate links, backend, database, auth, CMS, and Docker remain deferred.

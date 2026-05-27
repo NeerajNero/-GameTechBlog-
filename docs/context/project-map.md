@@ -29,7 +29,7 @@ Keep this file compact. It is the first context file an agent should read.
 | Taxonomy helpers | `apps/web/lib/content/taxonomy.ts` | Category/tag collections, slug lookup, related article helpers |
 | SEO helpers | `apps/web/lib/seo/` | Metadata, URL helpers, structured data |
 | Articles | `apps/web/content/articles/` | Local MDX article files |
-| Brand assets | `apps/web/public/brand/`, `apps/web/app/icon.png` | Local GameTechGuides logo and browser/app icon assets |
+| Brand assets | `apps/web/public/brand/`, `apps/web/app/icon.png`, `apps/web/app/apple-icon.png`, `apps/web/public/favicon.ico` | Local GameTechGuides logo and browser/app icon assets |
 | Image handling guide | `docs/image-handling.md` | Manual Cloudinary workflow and asset rules |
 | Image asset checklist | `docs/image-asset-checklist.md` | Manual cover image QA before upload/frontmatter updates |
 | Vercel launch checklist | `docs/deployment/vercel-launch-checklist.md` | Pre-launch deployment steps and Vercel settings |
@@ -50,6 +50,7 @@ Keep this file compact. It is the first context file an agent should read.
 | Domain SEO branding report | `docs/features/reports/domain-seo-branding-inspection.md` | gametechguides.com SEO/env behavior and GameTechGuides branding inspection |
 | Brand assets report | `docs/features/reports/brand-assets-logo-favicon.md` | Local logo/favicon implementation and verification |
 | Scan-friendly article components report | `docs/features/reports/article-scan-friendly-components.md` | MDX quick take, read-more, and verdict implementation |
+| Article pattern and favicon audit report | `docs/features/reports/article-pattern-and-favicon-audit.md` | Future article pattern docs and favicon compatibility audit |
 
 ## Current Architecture Notes
 
@@ -59,6 +60,7 @@ Keep this file compact. It is the first context file an agent should read.
 - Backend, database, admin panel, CMS, auth, payments, accounts, and Docker are deferred.
 - Site assets stay in the repo.
 - Core GameTechGuides brand assets are local repo files, not Cloudinary.
+- Stable favicon paths are `/favicon.ico`, `/icon.png`, and `/apple-icon.png`.
 - Article/media images use manually uploaded Cloudinary delivery URLs.
 - Article cover images for the first three sample articles use Cloudinary delivery URLs.
 - The published Total Overdose opinion article also uses a Cloudinary cover image URL.
@@ -66,7 +68,7 @@ Keep this file compact. It is the first context file an agent should read.
 - SEO foundation implementation is complete.
 - Cloudinary image foundation implementation is complete.
 - Taxonomy/design polish is implemented with static category and tag routes.
-- Article detail design polish is implemented with a richer hero, cinematic cover image treatment, optional quick-take frontmatter, reusable `ArticleImage`, `ArticleCallout`, `ArticleHighlight`, `ArticlePullQuote`, `ArticleQuickTake`, `ArticleReadMore`, and `ArticleVerdict` MDX components, and improved article-body typography.
+- Article detail design polish is implemented with a richer hero, cinematic cover image treatment, optional quick-take frontmatter, reusable `ArticleImage`, `ArticleCallout`, `ArticleHighlight`, `ArticlePullQuote`, `ArticleQuickTake`, `ArticleReadMore`, and `ArticleVerdict` MDX components, improved article-body typography, and documented future article patterns.
 - Pre-launch deployment documentation is in place.
 - Final production domain is `https://gametechguides.com`.
 - Launch is blocked until Vercel Production has `NEXT_PUBLIC_SITE_URL=https://gametechguides.com`, the latest Production deployment is live on the domain, Search Console is configured, and the final contact channel is configured.
@@ -82,5 +84,5 @@ Keep this file compact. It is the first context file an agent should read.
 ## Last Updated
 
 - Date: 2026-05-27
-- Command: scan-friendly article detail components
-- Source artifact: `docs/features/reports/article-scan-friendly-components.md`
+- Command: article pattern and favicon audit
+- Source artifact: `docs/features/reports/article-pattern-and-favicon-audit.md`

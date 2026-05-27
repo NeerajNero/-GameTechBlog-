@@ -24,6 +24,13 @@ Use this before publishing or updating an article.
 - One H1 through the page title.
 - H2 sections match major reader questions.
 - H3 sections are used only when they improve scanability.
+- Use `<ArticleQuickTake>` near the top for most articles.
+- Keep the main summary, argument, or recommendation visible before expandable content.
+- Use `<ArticleReadMore>` only for deeper details, caveats, or optional context.
+- Use `<ArticleHighlight>` sparingly for short inline phrases.
+- Use `<ArticlePullQuote>` at most once per article.
+- Use `<ArticleVerdict>` for reviews, opinions, or impressions when a final take helps.
+- Do not hide the entire article behind collapsible sections.
 - Add comparison tables where readers need side-by-side decisions.
 - Add FAQ sections only when they answer real follow-up questions.
 
@@ -69,6 +76,7 @@ Implement during the SEO foundation slice:
 - Middleware exclusions for `robots.txt`, `sitemap.xml`, static images, and `.well-known` if middleware is added.
 - Static trust/policy pages: `/about`, `/contact`, `/privacy-policy`, `/terms`, `/editorial-policy`, `/affiliate-disclosure`.
 - `metadataBase` from the normalized site URL.
+- Stable favicon links: `/favicon.ico`, `/icon.png`, and `/apple-icon.png`.
 
 Deferred:
 
