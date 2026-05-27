@@ -10,6 +10,7 @@ export type ArticleFrontmatter = {
   coverImage?: string;
   coverImageAlt?: string;
   coverImageCredit?: string;
+  quickTake?: string;
   featured: boolean;
   draft: boolean;
   seoTitle: string;

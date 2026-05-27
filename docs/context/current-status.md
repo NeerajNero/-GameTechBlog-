@@ -2,7 +2,7 @@
 
 ## Status
 
-MVP static blog, SEO foundation, Cloudinary image foundation, taxonomy/design polish, the first article image asset pass, pre-launch documentation, the GameTechGuides production-domain branding pass, and local brand logo/favicon assets are implemented under `apps/web/` and `docs/`.
+MVP static blog, SEO foundation, Cloudinary image foundation, taxonomy/design polish, the first article image asset pass, pre-launch documentation, the GameTechGuides production-domain branding pass, local brand logo/favicon assets, article detail design polish, and scan-friendly inline article components are implemented under `apps/web/` and `docs/`.
 
 ## Completed
 
@@ -45,6 +45,8 @@ MVP static blog, SEO foundation, Cloudinary image foundation, taxonomy/design po
 - Local GameTechGuides brand assets are stored under `apps/web/public/brand/`.
 - Header branding uses the local square icon, visible `GameTechGuides` text, and a compact subtitle; the wide logo is not used in the header.
 - Browser/app icon support uses the Next.js App Router `apps/web/app/icon.png` convention.
+- Article detail pages use a polished hero, cinematic cover frame, quick-take box, richer MDX typography, optional `ArticleCallout`, `ArticleHighlight`, `ArticlePullQuote`, `ArticleQuickTake`, `ArticleReadMore`, and `ArticleVerdict` MDX components, and improved related article presentation.
+- The Forza Horizon 6 hands-on article uses the scan-friendly MDX component pattern with a quick take, expandable detail sections, and final verdict block.
 
 ## Not Started
 

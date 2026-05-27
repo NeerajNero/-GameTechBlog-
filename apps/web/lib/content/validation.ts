@@ -16,7 +16,8 @@ const requiredStringFields: Array<keyof ArticleFrontmatter> = [
 const optionalStringFields: Array<keyof ArticleFrontmatter> = [
   "coverImage",
   "coverImageAlt",
-  "coverImageCredit"
+  "coverImageCredit",
+  "quickTake"
 ];
 
 function isRecord(value: unknown): value is Record<string, unknown> {
