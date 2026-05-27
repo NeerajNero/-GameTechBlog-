@@ -2,7 +2,7 @@
   "name": "gametechguides",
   "private": true,
   "version": "0.1.0",
-  "description": "Starter-pack workflow plus a Next.js gaming and tech blog MVP.",
+  "description": "Starter-pack workflow plus the GameTechGuides production content site.",
   "scripts": {
     "web:dev": "pnpm --dir apps/web dev",
     "web:build": "pnpm --dir apps/web build",

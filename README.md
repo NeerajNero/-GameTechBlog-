@@ -1,21 +1,24 @@
-# Gaming + Tech Blog Website
+# GameTechGuides
 
-This repository is being initialized as a content-first gaming and tech blog.
+GameTechGuides is a live production content site at
+`https://gametechguides.com`.
 
-The repo started from a reusable agentic starter pack. The workflow docs, commands, agents, skills, and templates are still useful, but this project has a specific MVP shape:
+The repo started from a reusable agentic starter pack. The workflow docs,
+commands, agents, skills, and templates are still useful, but this project now
+has a specific production content-site shape:
 
 - Next.js App Router
 - TypeScript
 - Tailwind CSS
 - MDX-based articles
 - Local content files in `apps/web/content/articles/`
-- Vercel deployment later
+- Vercel deployment on the custom domain
 
-## MVP Boundary
+## Production Boundary
 
-This is not a full-stack SaaS/product app in the MVP.
+This is a production content site, not a full-stack SaaS/product app.
 
-Do not add:
+Do not add these unless a future task explicitly changes the product scope:
 
 - Backend
 - Database
@@ -33,10 +36,9 @@ Do not add:
 1. [docs/project-brief.md](docs/project-brief.md)
 2. [docs/architecture.md](docs/architecture.md)
 3. [docs/context/project-map.md](docs/context/project-map.md)
-4. [docs/features/mvp-scope.md](docs/features/mvp-scope.md)
-5. [docs/content-strategy.md](docs/content-strategy.md)
-6. [docs/seo-checklist.md](docs/seo-checklist.md)
-7. [docs/command-map.md](docs/command-map.md)
+4. [docs/content-strategy.md](docs/content-strategy.md)
+5. [docs/seo-checklist.md](docs/seo-checklist.md)
+6. [docs/command-map.md](docs/command-map.md)
 
 ## Publishing Model
 
@@ -49,13 +51,13 @@ apps/web/content/articles/
 Publishing flow:
 
 ```text
-create MDX file -> add frontmatter -> upload article image to Cloudinary if available -> paste image URL -> commit -> push -> Vercel deploys
+create MDX file -> add frontmatter -> use scan-friendly article components -> upload article image to Cloudinary if available -> paste image URL -> verify -> commit -> push -> Vercel deploys
 ```
 
 Deployment flow:
 
 ```text
-local development -> GitHub -> Vercel -> custom domain -> Search Console -> AdSense later
+local development -> GitHub -> Vercel -> https://gametechguides.com -> Search Console
 ```
 
 ## Starter-Pack Workflow
@@ -66,7 +68,7 @@ The command-gated workflow is preserved:
 /classify -> /plan -> /approve -> /implement -> /verify -> /test -> /review -> /finalize -> /context-update
 ```
 
-For this MVP:
+For current production content-site work:
 
 - Use `/api-integrate` only if a future backend/API exists.
 - Use frontend/content/SEO docs before backend docs.
@@ -74,9 +76,13 @@ For this MVP:
 
 ## Current Status
 
-The MVP static blog, SEO foundation, Cloudinary image handling foundation, taxonomy/design polish, and first sample article cover images are implemented in `apps/web/`.
+The production site is live at `https://gametechguides.com` with published
+articles, sitemap/robots, Search Console setup, Cloudinary article images,
+favicon/logo assets, and scan-friendly article components.
 
-Pre-launch work is still pending: Vercel project setup, final custom domain, production `NEXT_PUBLIC_SITE_URL`, public contact email/channel, Search Console, and later AdSense readiness.
+Ongoing work is production content growth, editorial polish, and routine SEO
+maintenance. Ads, analytics, affiliate links, backend, database, auth, CMS,
+Docker, and RSS remain deferred unless explicitly implemented later.
 
 ## Local Development
 

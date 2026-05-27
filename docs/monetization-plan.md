@@ -2,7 +2,7 @@
 
 ## Strategy
 
-Monetization should follow content quality and traffic, not lead the MVP. The first objective is a trustworthy content base with clear SEO structure and useful articles.
+Monetization should follow content quality and traffic, not lead production work. The current objective is a trustworthy content base with clear SEO structure and useful articles.
 
 ## Phase 1: Readiness
 

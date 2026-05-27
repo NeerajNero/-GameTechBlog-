@@ -2,7 +2,7 @@
 
 This document defines the SEO implementation standard for the gaming + tech blog.
 
-Use it when planning or implementing the next SEO foundation slice.
+Use it when planning or implementing SEO-facing changes.
 
 ## Goals
 
@@ -14,9 +14,9 @@ Use it when planning or implementing the next SEO foundation slice.
 - Add structured data for articles and breadcrumbs.
 - Keep implementation simple enough for a static MDX blog.
 
-## Immediate Scope
+## Implemented Foundation
 
-The first SEO foundation slice should implement:
+The current production site includes:
 
 - Sitemap.
 - Robots.
@@ -31,11 +31,10 @@ The first SEO foundation slice should implement:
   - `/editorial-policy`
   - `/affiliate-disclosure`
 
-Deferred from this slice:
+Still deferred:
 
 - RSS. Add it later after the article workflow is stable.
-- Category and tag pages. They are required before a serious public launch, but they belong in the next taxonomy/design slice unless they can be added without scope creep.
-- Real article cover images. Add those in the asset pass.
+- Generated OG images per article.
 
 ## SEO File Map
 
@@ -260,14 +259,14 @@ Rules:
 
 Each article should eventually have a real cover image.
 
-MVP/fallback pattern:
+Current fallback pattern:
 
 - Use article `coverImage` only if it exists and is not a placeholder.
 - Avoid broken OG and JSON-LD image URLs.
 - Use a site-level fallback OG image only when an actual fallback file exists.
 - Keep image dimensions at `1200x630` for OG compatibility.
 - Alt text should describe the article topic, not repeat only the title.
-- Real article cover images remain deferred to the asset pass.
+- Leave image fields empty until a real Cloudinary or local public image is available.
 
 Future improvement:
 

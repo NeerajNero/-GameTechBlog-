@@ -1,8 +1,9 @@
 # Architecture
 
-## MVP Architecture
+## Production Architecture
 
-This project is a content-first static blog.
+This project is a production content-first static blog at
+`https://gametechguides.com`.
 
 ```text
 Next.js App Router
@@ -12,7 +13,8 @@ Next.js App Router
   -> deployed on Vercel
 ```
 
-There is no backend, database, generated SDK, auth, queue, or Docker infrastructure in the MVP.
+There is no backend, database, generated SDK, auth, queue, or Docker infrastructure
+in the current production architecture.
 
 ## Target Stack
 
@@ -74,7 +76,7 @@ The content rule should stay stable: article source files live under `apps/web/c
 
 - `apps/web/content/articles/` owns article body content and frontmatter.
 - `apps/web/public/` owns repo-managed site assets.
-- Cloudinary owns manually uploaded article/media delivery assets in the MVP.
+- Cloudinary owns manually uploaded article/media delivery assets.
 - `lib/content/` should own file loading, frontmatter parsing, slug lookup, sorting, draft filtering, and reading-time helpers.
 - `lib/seo/` should own metadata, canonical URLs, sitemap helpers, and structured data builders.
 - `components/blog/` should own article cards, article headers, related articles, and content rendering wrappers.
@@ -137,7 +139,8 @@ local development -> GitHub -> Vercel -> custom domain -> Search Console -> AdSe
 
 ## Deferred Architecture
 
-These are intentionally out of scope for the MVP:
+These are intentionally deferred until content velocity, indexing, or monetization
+needs justify the added operational cost:
 
 - Backend API.
 - Database.
@@ -149,4 +152,4 @@ These are intentionally out of scope for the MVP:
 - Dockerized local infrastructure.
 - Generated API SDK.
 
-Revisit only after content velocity, indexing, and monetization needs justify the added operational cost.
+Revisit only with an explicit implementation request.

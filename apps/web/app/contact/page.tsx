@@ -13,14 +13,16 @@ export default function ContactPage() {
     <StaticPage
       eyebrow="Contact"
       title="Corrections, ideas, and collaboration"
-      description="Use this page as the contact path for article corrections, topic ideas, and future collaboration queries.">
+      description="Use this page for article corrections, topic ideas, and collaboration queries.">
       <p>
-        A public contact email has not been finalized yet. Add the preferred contact
-        address or form link here before the public launch.
+        A final public contact email is not listed on the site yet. Until it is added,
+        use the contact channel shared by the site owner or include the correction
+        details wherever the article was shared.
       </p>
       <p>
         Good reasons to get in touch include factual corrections, outdated product
-        details, article suggestions, and practical gaming setup questions.
+        details, article suggestions, collaboration queries, and practical gaming setup
+        questions that could become future guides.
       </p>
       <p>
         Please include the article URL and a short explanation when reporting a
