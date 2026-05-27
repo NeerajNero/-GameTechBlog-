@@ -43,7 +43,7 @@ MVP static blog, SEO foundation, Cloudinary image foundation, taxonomy/design po
 - Production-domain SEO and branding inspection completed for `https://gametechguides.com`.
 - Site branding changed from GameTechBlog to GameTechGuides in shared config, user-facing trust pages, package metadata, and article publisher JSON-LD.
 - Local GameTechGuides brand assets are stored under `apps/web/public/brand/`.
-- Header branding now uses local logo/icon imagery while keeping visible `GameTechGuides` text.
+- Header branding uses the local square icon, visible `GameTechGuides` text, and a compact subtitle; the wide logo is not used in the header.
 - Browser/app icon support uses the Next.js App Router `apps/web/app/icon.png` convention.
 
 ## Not Started
@@ -75,6 +75,7 @@ Set or confirm `NEXT_PUBLIC_SITE_URL=https://gametechguides.com` in Vercel Produ
 - Article cover images for the first three sample articles use Cloudinary delivery URLs.
 - Published Total Overdose article also uses a Cloudinary delivery URL for cover image.
 - Core brand assets use local repo files under `apps/web/public/brand/` and `apps/web/app/icon.png`.
+- The wide logo asset appears to have a checkerboard-style background and should be re-exported or cleaned before public use.
 - Cloudinary is delivery-only in MVP; no upload/admin system, SDK, signed uploads, credentials, or backend routes are included.
 - RSS, ads, analytics, affiliate links, backend, database, auth, CMS, and Docker remain deferred.
 - Temporary Vercel deployment can build without `NEXT_PUBLIC_SITE_URL` and should remain noindex.
