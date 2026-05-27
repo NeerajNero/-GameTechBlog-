@@ -11,30 +11,42 @@ export function ArticleHeader({ article }: { article: Article }) {
   const categoryHref = `/categories/${slugify(article.category)}`;
 
   return (
-    <header className="space-y-6 border-b border-slate-200 pb-8">
-      <div className="space-y-3">
+    <header className="space-y-8">
+      <div className="space-y-5">
         <Link
           href={categoryHref}
-          className="inline-flex text-sm font-black uppercase tracking-wide text-circuit hover:text-ink"
+          className="inline-flex rounded-full border border-circuit/20 bg-circuit/10 px-3 py-1.5 text-xs font-black uppercase tracking-wide text-circuit transition hover:border-circuit/50 hover:bg-circuit/15 hover:text-ink"
         >
           {article.category}
         </Link>
-        <h1 className="max-w-4xl text-4xl font-black leading-tight text-ink sm:text-5xl">
+        <h1 className="max-w-5xl text-4xl font-black leading-[1.05] text-ink sm:text-5xl lg:text-6xl">
           {article.title}
         </h1>
-        <p className="max-w-3xl text-lg leading-8 text-slate-600">{article.description}</p>
+        <p className="max-w-3xl text-lg leading-8 text-slate-600 sm:text-xl sm:leading-9">
+          {article.description}
+        </p>
       </div>
-      <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-soft">
-        <ArticleMeta
-          author={article.author}
-          publishedAt={article.publishedAt}
-          updatedAt={article.updatedAt}
-          readingTime={article.readingTime}
-        />
+      <div className="flex flex-col gap-4 rounded-xl border border-slate-200 bg-white/90 p-4 shadow-soft sm:flex-row sm:items-center sm:justify-between">
+        <div className="min-w-0">
+          <p className="text-xs font-black uppercase tracking-wide text-slate-400">
+            Written by
+          </p>
+          <ArticleMeta
+            author={article.author}
+            publishedAt={article.publishedAt}
+            updatedAt={article.updatedAt}
+            readingTime={article.readingTime}
+          />
+        </div>
+        {article.featured ? (
+          <p className="inline-flex w-fit rounded-md bg-ink px-3 py-1.5 text-xs font-black uppercase tracking-wide text-white">
+            Featured
+          </p>
+        ) : null}
       </div>
       <TagList tags={article.tags} getHref={(tag) => `/tags/${slugify(tag)}`} />
       {coverImage ? (
-        <figure className="overflow-hidden rounded-lg border border-slate-200 bg-white">
+        <figure className="overflow-hidden rounded-2xl border border-slate-200 bg-ink shadow-soft ring-1 ring-white">
           <div className="relative aspect-[16/9]">
             <Image
               src={coverImage}
@@ -42,17 +54,17 @@ export function ArticleHeader({ article }: { article: Article }) {
               fill
               priority
               sizes="(min-width: 1024px) 896px, 100vw"
-              className="object-cover"
+              className="object-contain"
             />
           </div>
           {article.coverImageCredit ? (
-            <figcaption className="px-4 py-2 text-xs text-slate-500">
+            <figcaption className="border-t border-white/10 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-wide text-slate-500">
               {article.coverImageCredit}
             </figcaption>
           ) : null}
         </figure>
       ) : (
-        <div className="min-h-52 rounded-lg bg-[linear-gradient(135deg,#0f172a,#0f766e_52%,#dc2626)] p-6 text-white">
+        <div className="min-h-64 rounded-2xl bg-[linear-gradient(135deg,#0f172a,#0f766e_52%,#dc2626)] p-6 text-white shadow-soft">
           <p className="text-sm font-bold uppercase tracking-wide text-white/70">
             Cover image pending
           </p>

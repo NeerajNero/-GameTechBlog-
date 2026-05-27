@@ -22,10 +22,22 @@ What will the reader know or be able to decide after reading?
 ## Outline
 
 1. Introduction:
-2. Main section:
-3. Main section:
-4. Main section:
-5. Recommendation or conclusion:
+2. ArticleQuickTake:
+3. Main visible summary or argument:
+4. ArticleImage placement if relevant:
+5. ArticleReadMore sections for deeper details:
+6. ArticleVerdict or conclusion:
+
+## Scan-Friendly Components
+
+- Quick take bullets:
+- Important phrase to highlight, if any:
+- Pull quote, max one:
+- Screenshots/images needed:
+- Read-more sections:
+- Verdict block needed: yes/no
+
+Rules: do not hide the entire article behind collapsible sections, keep enough useful content visible, avoid overusing highlights, and keep the article human, helpful, and not thin.
 
 ## India-Specific Angle
 
@@ -45,5 +57,4 @@ What will the reader know or be able to decide after reading?
 - 
 
 ## Social Hook
-
 

@@ -23,13 +23,13 @@ Keep this file compact. It is the first context file an agent should read.
 | SEO routes | `apps/web/app/robots.ts`, `apps/web/app/sitemap.ts` | Robots and sitemap |
 | Trust/policy pages | `apps/web/app/about`, `apps/web/app/contact`, `apps/web/app/privacy-policy`, `apps/web/app/terms`, `apps/web/app/editorial-policy`, `apps/web/app/affiliate-disclosure` | Static launch-readiness pages |
 | Layout components | `apps/web/components/layout/` | Header, footer, shell |
-| Blog components | `apps/web/components/blog/` | Article cards, metadata, MDX rendering |
+| Blog components | `apps/web/components/blog/` | Article cards, metadata, article hero, inline MDX media, highlights, pull quotes, quick takes, read-more sections, verdict blocks, related articles |
 | SEO components | `apps/web/components/seo/` | JSON-LD rendering |
 | Content helpers | `apps/web/lib/content/` | Frontmatter parsing, validation, draft filtering |
 | Taxonomy helpers | `apps/web/lib/content/taxonomy.ts` | Category/tag collections, slug lookup, related article helpers |
 | SEO helpers | `apps/web/lib/seo/` | Metadata, URL helpers, structured data |
 | Articles | `apps/web/content/articles/` | Local MDX article files |
-| Brand assets | `apps/web/public/brand/`, `apps/web/app/icon.png` | Local GameTechGuides logo and browser/app icon assets |
+| Brand assets | `apps/web/public/brand/`, `apps/web/app/icon.png`, `apps/web/app/apple-icon.png`, `apps/web/public/favicon.ico` | Local GameTechGuides logo and browser/app icon assets |
 | Image handling guide | `docs/image-handling.md` | Manual Cloudinary workflow and asset rules |
 | Image asset checklist | `docs/image-asset-checklist.md` | Manual cover image QA before upload/frontmatter updates |
 | Vercel launch checklist | `docs/deployment/vercel-launch-checklist.md` | Pre-launch deployment steps and Vercel settings |
@@ -49,6 +49,8 @@ Keep this file compact. It is the first context file an agent should read.
 | Pre-launch review report | `docs/features/reports/pre-launch-review.md` | Launch blockers, verification, and deployment readiness review |
 | Domain SEO branding report | `docs/features/reports/domain-seo-branding-inspection.md` | gametechguides.com SEO/env behavior and GameTechGuides branding inspection |
 | Brand assets report | `docs/features/reports/brand-assets-logo-favicon.md` | Local logo/favicon implementation and verification |
+| Scan-friendly article components report | `docs/features/reports/article-scan-friendly-components.md` | MDX quick take, read-more, and verdict implementation |
+| Article pattern and favicon audit report | `docs/features/reports/article-pattern-and-favicon-audit.md` | Future article pattern docs and favicon compatibility audit |
 
 ## Current Architecture Notes
 
@@ -58,6 +60,7 @@ Keep this file compact. It is the first context file an agent should read.
 - Backend, database, admin panel, CMS, auth, payments, accounts, and Docker are deferred.
 - Site assets stay in the repo.
 - Core GameTechGuides brand assets are local repo files, not Cloudinary.
+- Stable favicon paths are `/favicon.ico`, `/icon.png`, and `/apple-icon.png`.
 - Article/media images use manually uploaded Cloudinary delivery URLs.
 - Article cover images for the first three sample articles use Cloudinary delivery URLs.
 - The published Total Overdose opinion article also uses a Cloudinary cover image URL.
@@ -65,6 +68,7 @@ Keep this file compact. It is the first context file an agent should read.
 - SEO foundation implementation is complete.
 - Cloudinary image foundation implementation is complete.
 - Taxonomy/design polish is implemented with static category and tag routes.
+- Article detail design polish is implemented with a richer hero, cinematic cover image treatment, optional quick-take frontmatter, reusable `ArticleImage`, `ArticleCallout`, `ArticleHighlight`, `ArticlePullQuote`, `ArticleQuickTake`, `ArticleReadMore`, and `ArticleVerdict` MDX components, improved article-body typography, and documented future article patterns.
 - Pre-launch deployment documentation is in place.
 - Final production domain is `https://gametechguides.com`.
 - Launch is blocked until Vercel Production has `NEXT_PUBLIC_SITE_URL=https://gametechguides.com`, the latest Production deployment is live on the domain, Search Console is configured, and the final contact channel is configured.
@@ -79,6 +83,6 @@ Keep this file compact. It is the first context file an agent should read.
 
 ## Last Updated
 
-- Date: 2026-05-26
-- Command: brand assets logo/favicon implementation
-- Source artifact: `docs/features/reports/brand-assets-logo-favicon.md`
+- Date: 2026-05-27
+- Command: article pattern and favicon audit
+- Source artifact: `docs/features/reports/article-pattern-and-favicon-audit.md`

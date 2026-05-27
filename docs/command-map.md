@@ -85,12 +85,13 @@ These are human or agent workflow steps, not package scripts:
 ```text
 1. Create apps/web/content/articles/<article-slug>.mdx
 2. Add required frontmatter from templates/article-frontmatter.md
-3. Upload article/media image manually to Cloudinary when a safe image exists
-4. Paste the Cloudinary secure URL into coverImage with honest alt text and credit
-5. Run local checks
-6. Commit changes
-7. Push to GitHub
-8. Vercel deploys
+3. Draft with the scan-friendly pattern: intro, ArticleQuickTake, visible main value, ArticleImage, optional ArticleReadMore, and ArticleVerdict where relevant
+4. Upload article/media image manually to Cloudinary when a safe image exists
+5. Paste the Cloudinary secure URL into coverImage or ArticleImage with honest alt text, caption, and credit
+6. Run local checks
+7. Commit changes
+8. Push to GitHub
+9. Vercel deploys
 ```
 
 Article image workflow details live in `docs/image-handling.md` and `docs/image-asset-checklist.md`. Site-level assets can still live in the repo under `apps/web/public/`.

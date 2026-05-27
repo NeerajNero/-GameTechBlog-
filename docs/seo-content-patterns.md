@@ -31,6 +31,28 @@ Use `templates/article-brief.md`.
 - H3: steps, options, or sub-decisions.
 - Avoid decorative headings that do not help scanning.
 
+## Scan-Friendly Article Pattern
+
+Recommended structure for future MDX articles:
+
+1. Title and frontmatter.
+2. Short intro that confirms the search intent.
+3. `<ArticleQuickTake>` with concise bullets.
+4. Main visible summary, argument, recommendation, or early impression.
+5. `<ArticleImage>` for safe screenshots or article media when relevant.
+6. `<ArticleReadMore>` sections for deeper details, caveats, or testing notes.
+7. `<ArticleVerdict>` for reviews, opinions, and impressions.
+8. Related/internal links where natural.
+
+Rules:
+
+- Do not hide the entire article behind collapsible sections.
+- Keep enough useful content visible for readers and crawlers.
+- Use `<ArticleHighlight>` only for short inline phrases that genuinely matter.
+- Use `<ArticlePullQuote>` at most once per article.
+- Avoid making articles feel thin by replacing real explanation with too many components.
+- Keep the voice human, helpful, and specific.
+
 ## Internal Linking Pattern
 
 - Link from broad guides to specific guides.

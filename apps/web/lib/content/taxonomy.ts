@@ -18,7 +18,9 @@ const categoryDescriptions: Record<string, string> = {
   "Game Streaming":
     "Home-network and setup guides for smoother remote play, Steam Link, and streaming sessions.",
   "Gaming Hardware":
-    "Storage, cooling, laptop, monitor, accessory, and setup advice for practical gaming hardware choices."
+    "Storage, cooling, laptop, monitor, accessory, and setup advice for practical gaming hardware choices.",
+  "Gaming Reviews":
+    "Hands-on impressions and player-focused reviews for games, hardware, and gaming services."
 };
 
 function fallbackCategoryDescription(label: string): string {

@@ -23,6 +23,12 @@
 - [ ] Search intent is clear.
 - [ ] Intro confirms the reader is in the right place.
 - [ ] Headings are useful and scannable.
+- [ ] Article uses `<ArticleQuickTake>` near the top when a short summary helps.
+- [ ] Main value remains visible; the whole article is not hidden behind collapsible sections.
+- [ ] `<ArticleReadMore>` is used only for deeper details, caveats, or optional context.
+- [ ] `<ArticleHighlight>` is used sparingly for important short phrases.
+- [ ] `<ArticlePullQuote>` is used at most once, only for a strong standout line.
+- [ ] `<ArticleVerdict>` is used for reviews, opinions, and impressions when a final take is useful.
 - [ ] Article includes practical advice, not generic filler.
 - [ ] India-specific context is included where relevant.
 - [ ] Internal links are included.
@@ -32,6 +38,7 @@
 ## Images
 
 - [ ] Cover image is either empty or a real Cloudinary/local public image URL.
+- [ ] Inline screenshots/images use `<ArticleImage>` with a real URL, caption, and credit.
 - [ ] No fake Cloudinary URL is used.
 - [ ] Alt text describes the actual image.
 - [ ] Credit is included when the license/source requires it.
