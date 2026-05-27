@@ -73,7 +73,7 @@ Keep this file compact. It is the first context file an agent should read.
 - Production deployment documentation is in place.
 - Final production domain is `https://gametechguides.com`.
 - Production is live on `https://gametechguides.com` with sitemap/robots and Search Console configured.
-- The final public contact email or contact method is still pending.
+- Public contact email is `gametechguides@gmail.com`.
 - Older reports, plans, and decisions can retain MVP terminology as historical development context.
 
 ## Read First For New Features

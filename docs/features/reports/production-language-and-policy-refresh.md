@@ -42,7 +42,7 @@ Older reports, plans, approvals, classifications, decisions, and `docs/features/
 
 - Footer now describes what GameTechGuides publishes instead of describing MVP limitations.
 - About page now explains what GameTechGuides is, who it is for, what it covers, and how hands-on/personal opinion content is handled.
-- Contact page now avoids pre-launch wording and states that a final public contact email is still not listed.
+- Contact page now avoids pre-launch wording and lists `gametechguides@gmail.com` as the public contact email.
 - Privacy policy now uses live-site wording, mentions standard hosting/CDN logs, Cloudinary/local image delivery, and cautious future wording for analytics, ads, embeds, forms, newsletters, and accounts.
 - Terms page now includes informational content limitations, recommendation caveats, reader responsibility for purchase/setup decisions, and no piracy/download support.
 - Editorial policy now covers clarity/usefulness, hands-on labeling, speculation separation, corrections/updates, and honest AI-assisted workflow wording.
@@ -98,6 +98,5 @@ Confirmed:
 
 ## Remaining Manual Items
 
-- Add a final public contact email or contact form/link to `/contact`.
 - Continue validating representative live article pages with Google Rich Results Test.
 - Keep monetization disclosures updated if ads, analytics, or affiliate links are added later.

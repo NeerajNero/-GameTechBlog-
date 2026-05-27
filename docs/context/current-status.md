@@ -57,6 +57,7 @@ scan-friendly article components, and future article pattern documentation.
 - The Forza Horizon 6 hands-on article uses the scan-friendly MDX component pattern with a quick take, expandable detail sections, and final verdict block.
 - Article templates and content/SEO workflow docs now point future articles toward the scan-friendly pattern.
 - Trust and policy pages use production/live-site wording instead of launch-placeholder or MVP wording.
+- Public contact email is configured as `gametechguides@gmail.com`.
 
 ## Current Phase
 
@@ -71,13 +72,11 @@ and live-site maintenance.
 - RSS feed.
 - Backend, database, auth, CMS, admin, Docker, and user accounts.
 - Google Rich Results Test validation for representative articles.
-- Final public contact email or contact form.
 
 ## Next Recommended Task
 
-Add a final public contact email or contact method to `/contact`, then continue
-publishing scan-friendly original articles and validate representative live pages
-with Google Rich Results Test.
+Continue publishing scan-friendly original articles and validate representative
+live pages with Google Rich Results Test.
 
 ## Known Constraints
 
@@ -92,5 +91,5 @@ with Google Rich Results Test.
 - RSS, ads, analytics, affiliate links, backend, database, auth, CMS, and Docker remain deferred.
 - Vercel preview deployments can build without `NEXT_PUBLIC_SITE_URL` and should remain noindex.
 - Production Vercel should keep `NEXT_PUBLIC_SITE_URL=https://gametechguides.com`.
-- The contact page still needs a final public contact email or contact method.
+- The public contact email is `gametechguides@gmail.com`.
 - Historical reports, plans, and decisions may still use MVP terminology because they document earlier development phases.

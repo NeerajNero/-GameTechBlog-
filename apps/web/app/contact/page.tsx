@@ -15,9 +15,11 @@ export default function ContactPage() {
       title="Corrections, ideas, and collaboration"
       description="Use this page for article corrections, topic ideas, and collaboration queries.">
       <p>
-        A final public contact email is not listed on the site yet. Until it is added,
-        use the contact channel shared by the site owner or include the correction
-        details wherever the article was shared.
+        For corrections, article suggestions, and collaboration queries, email{" "}
+        <a className="font-bold text-circuit" href="mailto:gametechguides@gmail.com">
+          gametechguides@gmail.com
+        </a>
+        .
       </p>
       <p>
         Good reasons to get in touch include factual corrections, outdated product
