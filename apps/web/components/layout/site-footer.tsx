@@ -23,8 +23,8 @@ export function SiteFooter() {
           and hardware buyers.
         </p>
         <p className="text-xs text-slate-500">
-          No ads, affiliate links, analytics, backend, accounts, or CMS are included in
-          this MVP slice.
+          GameTechGuides publishes practical gaming guides, setup notes, hardware
+          explainers, and player-focused opinion articles.
         </p>
         <nav className="flex flex-wrap gap-x-4 gap-y-2 pt-2" aria-label="Footer links">
           {footerLinks.map((link) => (

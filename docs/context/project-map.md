@@ -4,11 +4,11 @@ Keep this file compact. It is the first context file an agent should read.
 
 ## Project Shape
 
-- Backend: none in MVP.
+- Backend: none in the current production site.
 - Web frontend: `apps/web/` Next.js App Router app.
 - Mobile frontend: none.
 - Docs: Markdown docs in `docs/`.
-- SDK: none in MVP.
+- SDK: none in the current production site.
 - Content: local MDX articles under `apps/web/content/articles/`.
 
 ## Important Entry Points
@@ -18,10 +18,10 @@ Keep this file compact. It is the first context file an agent should read.
 | Project brief | `docs/project-brief.md` | Source of truth for scope |
 | Architecture | `docs/architecture.md` | Static content-site architecture |
 | Command map | `docs/command-map.md` | Real package and app commands |
-| Web app | `apps/web/` | Next.js App Router blog |
+| Web app | `apps/web/` | Next.js App Router production content site |
 | App routes | `apps/web/app/` | Home, article listing, article detail, category pages, tag pages |
 | SEO routes | `apps/web/app/robots.ts`, `apps/web/app/sitemap.ts` | Robots and sitemap |
-| Trust/policy pages | `apps/web/app/about`, `apps/web/app/contact`, `apps/web/app/privacy-policy`, `apps/web/app/terms`, `apps/web/app/editorial-policy`, `apps/web/app/affiliate-disclosure` | Static launch-readiness pages |
+| Trust/policy pages | `apps/web/app/about`, `apps/web/app/contact`, `apps/web/app/privacy-policy`, `apps/web/app/terms`, `apps/web/app/editorial-policy`, `apps/web/app/affiliate-disclosure` | Live trust and policy pages |
 | Layout components | `apps/web/components/layout/` | Header, footer, shell |
 | Blog components | `apps/web/components/blog/` | Article cards, metadata, article hero, inline MDX media, highlights, pull quotes, quick takes, read-more sections, verdict blocks, related articles |
 | SEO components | `apps/web/components/seo/` | JSON-LD rendering |
@@ -51,12 +51,13 @@ Keep this file compact. It is the first context file an agent should read.
 | Brand assets report | `docs/features/reports/brand-assets-logo-favicon.md` | Local logo/favicon implementation and verification |
 | Scan-friendly article components report | `docs/features/reports/article-scan-friendly-components.md` | MDX quick take, read-more, and verdict implementation |
 | Article pattern and favicon audit report | `docs/features/reports/article-pattern-and-favicon-audit.md` | Future article pattern docs and favicon compatibility audit |
+| Production language and policy refresh report | `docs/features/reports/production-language-and-policy-refresh.md` | Live-site wording and trust/policy page refresh |
 
 ## Current Architecture Notes
 
-- The MVP static blog scaffold is implemented under `apps/web/`.
+- The production static content site is implemented under `apps/web/`.
 - Package manager is `pnpm`.
-- The MVP is a static content site with file-based MDX content.
+- The site is a static content site with file-based MDX content.
 - Backend, database, admin panel, CMS, auth, payments, accounts, and Docker are deferred.
 - Site assets stay in the repo.
 - Core GameTechGuides brand assets are local repo files, not Cloudinary.
@@ -69,20 +70,22 @@ Keep this file compact. It is the first context file an agent should read.
 - Cloudinary image foundation implementation is complete.
 - Taxonomy/design polish is implemented with static category and tag routes.
 - Article detail design polish is implemented with a richer hero, cinematic cover image treatment, optional quick-take frontmatter, reusable `ArticleImage`, `ArticleCallout`, `ArticleHighlight`, `ArticlePullQuote`, `ArticleQuickTake`, `ArticleReadMore`, and `ArticleVerdict` MDX components, improved article-body typography, and documented future article patterns.
-- Pre-launch deployment documentation is in place.
+- Production deployment documentation is in place.
 - Final production domain is `https://gametechguides.com`.
-- Launch is blocked until Vercel Production has `NEXT_PUBLIC_SITE_URL=https://gametechguides.com`, the latest Production deployment is live on the domain, Search Console is configured, and the final contact channel is configured.
+- Production is live on `https://gametechguides.com` with sitemap/robots and Search Console configured.
+- The final public contact email or contact method is still pending.
+- Older reports, plans, and decisions can retain MVP terminology as historical development context.
 
 ## Read First For New Features
 
 1. `docs/project-brief.md`
 2. `docs/context/project-map.md`
 3. `docs/context/decisions.md`
-4. `docs/features/mvp-scope.md`
+4. `docs/content-site-patterns.md`
 5. Relevant feature doc in `docs/features/`
 
 ## Last Updated
 
 - Date: 2026-05-27
-- Command: article pattern and favicon audit
-- Source artifact: `docs/features/reports/article-pattern-and-favicon-audit.md`
+- Command: production language and policy refresh
+- Source artifact: `docs/features/reports/production-language-and-policy-refresh.md`

@@ -4,8 +4,8 @@
 
 - Site assets stay in the repository.
 - Article/media assets use Cloudinary delivery URLs when real images are available.
-- Uploads are manual through the Cloudinary dashboard for the MVP.
-- There is no upload admin, upload API, backend, CMS, signed upload flow, or Cloudinary SDK in the MVP.
+- Uploads are manual through the Cloudinary dashboard.
+- There is no upload admin, upload API, backend, CMS, signed upload flow, or Cloudinary SDK in the current production site.
 
 ## Cloudinary Folder Convention
 

@@ -4,7 +4,7 @@ This is the high-level pattern index for future projects. Use the backend and fr
 
 ## Project Override
 
-For the Gaming + Tech Blog MVP, use the content-site and frontend patterns first:
+For the GameTechGuides production content site, use the content-site and frontend patterns first:
 
 - `docs/content-site-patterns.md`
 - `docs/seo-content-patterns.md`
@@ -12,7 +12,7 @@ For the Gaming + Tech Blog MVP, use the content-site and frontend patterns first
 - `docs/social-distribution-plan.md`
 - `docs/frontend-patterns.md`
 
-The backend, database, Docker, SDK, mobile, queue, and observability patterns remain preserved starter-pack references, but they are deferred for this MVP.
+The backend, database, Docker, SDK, mobile, queue, and observability patterns remain preserved starter-pack references, but they are deferred for the current production site.
 
 ## Project Patterns
 

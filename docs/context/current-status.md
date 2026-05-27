@@ -2,11 +2,14 @@
 
 ## Status
 
-MVP static blog, SEO foundation, Cloudinary image foundation, taxonomy/design polish, the first article image asset pass, pre-launch documentation, the GameTechGuides production-domain branding pass, local brand logo/favicon assets, article detail design polish, scan-friendly inline article components, and future article pattern documentation are implemented under `apps/web/` and `docs/`.
+GameTechGuides is a live production content site at `https://gametechguides.com`.
+The site has published articles, production SEO behavior, Search Console setup,
+sitemap/robots, Cloudinary article image handling, logo/favicon assets,
+scan-friendly article components, and future article pattern documentation.
 
 ## Completed
 
-- Project scope clarified as content-first MVP.
+- Project scope clarified as a content-first static site.
 - Backend/database/admin/CMS/auth/payment/user-account work explicitly deferred.
 - Local MDX article storage selected.
 - Vercel deployment flow documented.
@@ -41,6 +44,10 @@ MVP static blog, SEO foundation, Cloudinary image foundation, taxonomy/design po
 - Vercel pre-domain deployment fix implemented so missing `NEXT_PUBLIC_SITE_URL` no longer blocks temporary Vercel builds.
 - Vercel production/preview build simulations passed after the fix.
 - Production-domain SEO and branding inspection completed for `https://gametechguides.com`.
+- Production site is live at `https://gametechguides.com`.
+- Search Console is configured for the production domain.
+- Sitemap and robots are live for the production domain.
+- Published articles are indexable in production when `NEXT_PUBLIC_SITE_URL=https://gametechguides.com` and `VERCEL_ENV=production`.
 - Site branding changed from GameTechBlog to GameTechGuides in shared config, user-facing trust pages, package metadata, and article publisher JSON-LD.
 - Local GameTechGuides brand assets are stored under `apps/web/public/brand/`.
 - Header branding uses the local square icon, visible `GameTechGuides` text, and a compact subtitle; the wide logo is not used in the header.
@@ -49,28 +56,28 @@ MVP static blog, SEO foundation, Cloudinary image foundation, taxonomy/design po
 - Article detail pages use a polished hero, cinematic cover frame, quick-take box, richer MDX typography, optional `ArticleCallout`, `ArticleHighlight`, `ArticlePullQuote`, `ArticleQuickTake`, `ArticleReadMore`, and `ArticleVerdict` MDX components, and improved related article presentation.
 - The Forza Horizon 6 hands-on article uses the scan-friendly MDX component pattern with a quick take, expandable detail sections, and final verdict block.
 - Article templates and content/SEO workflow docs now point future articles toward the scan-friendly pattern.
+- Trust and policy pages use production/live-site wording instead of launch-placeholder or MVP wording.
 
-## Not Started
+## Current Phase
 
-- Confirm Vercel Production has `NEXT_PUBLIC_SITE_URL=https://gametechguides.com`.
-- Confirm the connected `gametechguides.com` domain points to the latest Production deployment.
-- Search Console setup.
+Ongoing phase: production content growth, editorial quality, routine SEO checks,
+and live-site maintenance.
+
+## Deferred
+
 - AdSense application.
+- Analytics.
+- Affiliate links.
 - RSS feed.
-- Google Rich Results Test validation after deployment.
-
-## Launch Blockers
-
-- Final public contact email or contact channel must be added before launch.
-- Vercel Production `NEXT_PUBLIC_SITE_URL=https://gametechguides.com` must be confirmed in the dashboard.
-- Production must be redeployed after any Vercel env change.
-- `gametechguides.com` must point to the latest Production deployment.
-- Search Console has not been configured.
-- Policy pages should be reviewed once the final domain/contact channel is known.
+- Backend, database, auth, CMS, admin, Docker, and user accounts.
+- Google Rich Results Test validation for representative articles.
+- Final public contact email or contact form.
 
 ## Next Recommended Task
 
-Set or confirm `NEXT_PUBLIC_SITE_URL=https://gametechguides.com` in Vercel Production, trigger a fresh Production redeploy, then inspect live source on `https://gametechguides.com` for canonical, Open Graph, robots metadata, sitemap, and GameTechGuides branding.
+Add a final public contact email or contact method to `/contact`, then continue
+publishing scan-friendly original articles and validate representative live pages
+with Google Rich Results Test.
 
 ## Known Constraints
 
@@ -81,8 +88,9 @@ Set or confirm `NEXT_PUBLIC_SITE_URL=https://gametechguides.com` in Vercel Produ
 - Core brand assets use local repo files under `apps/web/public/brand/` and `apps/web/app/icon.png`.
 - Stable favicon assets use `apps/web/public/favicon.ico`, `apps/web/app/icon.png`, and `apps/web/app/apple-icon.png`.
 - The wide logo asset appears to have a checkerboard-style background and should be re-exported or cleaned before public use.
-- Cloudinary is delivery-only in MVP; no upload/admin system, SDK, signed uploads, credentials, or backend routes are included.
+- Cloudinary is delivery-only; no upload/admin system, SDK, signed uploads, credentials, or backend routes are included.
 - RSS, ads, analytics, affiliate links, backend, database, auth, CMS, and Docker remain deferred.
-- Temporary Vercel deployment can build without `NEXT_PUBLIC_SITE_URL` and should remain noindex.
-- Production Vercel must set `NEXT_PUBLIC_SITE_URL=https://gametechguides.com` before final public/domain launch.
-- The contact page currently uses a launch-time placeholder until a public contact email/channel is finalized.
+- Vercel preview deployments can build without `NEXT_PUBLIC_SITE_URL` and should remain noindex.
+- Production Vercel should keep `NEXT_PUBLIC_SITE_URL=https://gametechguides.com`.
+- The contact page still needs a final public contact email or contact method.
+- Historical reports, plans, and decisions may still use MVP terminology because they document earlier development phases.

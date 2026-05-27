@@ -20,9 +20,9 @@ Set up the blog so every article can compete for search traffic without requirin
 - Site URL normalization through one config source.
 - Static trust/policy pages.
 
-## Immediate SEO Foundation Scope
+## Current SEO Foundation
 
-The first SEO foundation implementation slice should focus on:
+The production site includes:
 
 - Sitemap.
 - Robots.
@@ -32,7 +32,7 @@ The first SEO foundation implementation slice should focus on:
 - URL normalization.
 - Static trust/policy pages.
 
-Static trust/policy pages to add:
+Static trust/policy pages:
 
 - `/about`
 - `/contact`
@@ -41,15 +41,13 @@ Static trust/policy pages to add:
 - `/editorial-policy`
 - `/affiliate-disclosure`
 
-RSS is deferred for now. Add RSS later after the article workflow and taxonomy model are stable.
-
-Category and tag pages are required before a serious public launch, but they are deferred to the next taxonomy/design slice. Do not implement category/tag pages in the first SEO foundation slice unless they are already trivial to add without expanding scope.
+RSS is deferred for now. Add RSS later only if the article workflow and audience need it.
 
 ## Implementation Pattern
 
 Use `docs/seo-implementation-patterns.md` as the implementation standard.
 
-The next SEO slice should add:
+SEO-related implementation lives in:
 
 - `apps/web/app/robots.ts`
 - `apps/web/app/sitemap.ts`
@@ -58,7 +56,7 @@ The next SEO slice should add:
 - `apps/web/lib/seo/structured-data.ts`
 - `apps/web/lib/seo/urls.ts`
 
-It should also extend:
+Related files:
 
 - `apps/web/lib/seo/metadata.ts`
 - `apps/web/lib/site/config.ts`
@@ -80,7 +78,7 @@ Each trust/policy page should have:
 - Normalize trailing slashes.
 - Use `http://localhost:3000` as the local fallback.
 - Do not hardcode a fake production domain.
-- Production Vercel must set `NEXT_PUBLIC_SITE_URL` before launch.
+- Production Vercel should keep `NEXT_PUBLIC_SITE_URL=https://gametechguides.com`.
 - The root layout or central metadata helper should use `metadataBase` based on the normalized site URL.
 
 ## Content SEO Rules

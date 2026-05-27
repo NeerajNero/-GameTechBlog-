@@ -4,7 +4,7 @@ import { createPageMetadata } from "@/lib/seo/metadata";
 export const metadata = createPageMetadata({
   title: "Affiliate Disclosure",
   description:
-    "GameTechGuides affiliate disclosure and current MVP monetization status.",
+    "GameTechGuides affiliate disclosure and current monetization status.",
   path: "/affiliate-disclosure"
 });
 
@@ -13,19 +13,20 @@ export default function AffiliateDisclosurePage() {
     <StaticPage
       eyebrow="Disclosure"
       title="Affiliate disclosure"
-      description="The current MVP does not add affiliate links unless a specific article clearly says otherwise.">
+      description="GameTechGuides may use affiliate links in the future. If affiliate links are added, they will be disclosed clearly.">
       <p>
-        GameTechGuides may add affiliate links in the future. If that happens, articles
-        containing affiliate links should disclose them clearly.
+        GameTechGuides does not currently claim active affiliate partnerships or active
+        affiliate tracking on the site.
+      </p>
+      <p>
+        GameTechGuides may use affiliate links in the future. If affiliate links are
+        added, articles containing them should disclose that clearly near the relevant
+        recommendations.
       </p>
       <p>
         An affiliate link may earn a commission at no extra cost to the reader. Product
         recommendations should still be based on practical usefulness, fit, and clear
         tradeoffs.
-      </p>
-      <p>
-        This MVP does not add ad scripts, analytics scripts, or affiliate tracking
-        scripts.
       </p>
     </StaticPage>
   );

@@ -1,12 +1,12 @@
 # Command Map
 
-This file records the real commands for the project after the MVP static blog scaffold.
+This file records the real commands for the live GameTechGuides content site.
 
 ## Current State
 
 - Package manager: `pnpm`.
 - Web app scaffold: `apps/web/`.
-- Backend/database/Docker commands are not needed for the MVP.
+- Backend/database/Docker commands are not needed for the current production site.
 
 ## Root
 
@@ -27,9 +27,9 @@ pnpm --dir apps/web typecheck
 pnpm --dir apps/web build
 ```
 
-## SEO Foundation Verification
+## SEO Verification
 
-After implementing the approved SEO foundation slice:
+After SEO-facing changes:
 
 ```bash
 pnpm --dir apps/web lint
@@ -54,9 +54,9 @@ Smoke check:
 /affiliate-disclosure
 ```
 
-## Taxonomy Design Verification
+## Taxonomy Verification
 
-After implementing the approved taxonomy/design slice:
+After taxonomy or listing changes:
 
 ```bash
 pnpm --dir apps/web lint
@@ -96,9 +96,9 @@ These are human or agent workflow steps, not package scripts:
 
 Article image workflow details live in `docs/image-handling.md` and `docs/image-asset-checklist.md`. Site-level assets can still live in the repo under `apps/web/public/`.
 
-## Pre-Launch Verification
+## Production Verification
 
-Run before each deployment candidate:
+Run before each production deployment candidate:
 
 ```bash
 pnpm --dir apps/web lint
@@ -142,7 +142,7 @@ Use the starter-pack agentic workflow, but apply it to static site features.
 
 Skip `/api-integrate` unless a future backend/API is introduced.
 
-## Not Applicable In MVP
+## Not Applicable Currently
 
 Do not add commands for:
 

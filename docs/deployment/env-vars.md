@@ -1,17 +1,17 @@
 # Environment Variables
 
-## Required Before Final Public Launch
+## Required For Production
 
 | Variable | Required | Example | Purpose |
 | --- | --- | --- | --- |
-| `NEXT_PUBLIC_SITE_URL` | yes before final domain launch | `https://gametechguides.com` | Canonical URLs, sitemap URLs, metadataBase, robots sitemap URL, and JSON-LD URL values |
+| `NEXT_PUBLIC_SITE_URL` | yes in Production | `https://gametechguides.com` | Canonical URLs, sitemap URLs, metadataBase, robots sitemap URL, and JSON-LD URL values |
 
 Rules:
 
-- A temporary Vercel deployment can build without `NEXT_PUBLIC_SITE_URL`.
+- A preview Vercel deployment can build without `NEXT_PUBLIC_SITE_URL`.
 - When `NEXT_PUBLIC_SITE_URL` is missing, the app uses `https://${VERCEL_URL}` on Vercel or `http://localhost:3000` locally.
 - Missing `NEXT_PUBLIC_SITE_URL` keeps pages `noindex,nofollow`.
-- Set `NEXT_PUBLIC_SITE_URL=https://gametechguides.com` in Vercel Production before the final public/domain launch.
+- Set `NEXT_PUBLIC_SITE_URL=https://gametechguides.com` in Vercel Production.
 - Use the final HTTPS custom domain: `https://gametechguides.com`.
 - Do not use a fake production domain.
 - Do not include a trailing slash; the app normalizes trailing slashes if present.
@@ -37,20 +37,20 @@ NEXT_PUBLIC_SITE_URL=http://localhost:3000
 - Preview deployments remain noindex even if `NEXT_PUBLIC_SITE_URL` is present.
 - `robots.txt` still allows crawling and points to the sitemap; noindex belongs in page metadata, not robots.txt.
 
-## Temporary Vercel URL
+## Preview Vercel URLs
 
-The final domain is `https://gametechguides.com`. Temporary Vercel URLs are still acceptable for deployment testing.
+The production domain is `https://gametechguides.com`. Vercel preview URLs are still acceptable for deployment testing.
 
-Expected temporary behavior:
+Expected preview behavior:
 
 - Build succeeds.
 - Canonical, sitemap, robots, and JSON-LD URLs use the generated Vercel URL when available.
 - Pages remain `noindex,nofollow`.
-- Search Console and AdSense stay deferred.
+- Search Console and AdSense checks should focus on the production domain, not preview URLs.
 
-## Not Needed In MVP
+## Not Currently Needed
 
-Do not add these for the current static blog MVP:
+Do not add these unless a future task explicitly implements the related feature:
 
 - `CLOUDINARY_API_SECRET`
 - Cloudinary upload preset variables

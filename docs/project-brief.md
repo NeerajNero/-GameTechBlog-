@@ -2,16 +2,16 @@
 
 ## Product
 
-- Name: Gaming + Tech Blog Website
-- One-sentence purpose: Build a content-first gaming and tech blog for long-term SEO traffic, social distribution, affiliate revenue, AdSense readiness, and personal brand growth.
+- Name: GameTechGuides
+- One-sentence purpose: Operate a production gaming and tech content site for long-term SEO traffic, social distribution, future monetization readiness, and personal brand growth.
 - Primary users: Indian gamers, PC builders, console players, game streamers, and buyers researching practical gaming hardware.
-- Admin users: None in the MVP. Publishing is done by editing MDX files in the repository.
+- Admin users: None in the current production site. Publishing is done by editing MDX files in the repository.
 
-## MVP Decision
+## Product Boundary
 
-This MVP is not a full-stack SaaS or product application.
+GameTechGuides is not currently a full-stack SaaS or product application.
 
-Do not add in the MVP:
+Do not add unless a future task explicitly changes the product scope:
 
 - Backend
 - Database
@@ -28,8 +28,7 @@ Deferred does not mean never. These can be revisited after the blog proves a con
 
 ## Scope
 
-- First vertical slice: A static Next.js App Router blog shell with MDX article support, article listing, article detail pages, category/tag navigation, SEO metadata, sitemap/robots foundations, and a small initial content set.
-- Must-have features:
+- Current production scope:
   - Local MDX articles under `apps/web/content/articles/`.
   - Frontmatter-driven article metadata.
   - Content-first homepage and category pages.
@@ -37,6 +36,7 @@ Deferred does not mean never. These can be revisited after the blog proves a con
   - Practical design system for a gaming + tech editorial site.
   - Social sharing and article snippet workflow.
   - Affiliate and AdSense-ready content patterns without forcing monetization too early.
+  - Scan-friendly article components for quick takes, highlights, screenshots, expandable details, and verdict blocks.
 - Explicit non-goals:
   - No backend API.
   - No database.
@@ -69,14 +69,14 @@ Deferred does not mean never. These can be revisited after the blog proves a con
 - Frontend target: web
 - If web: Next.js App Router required.
 - If mobile: not applicable.
-- Shared package strategy: none for MVP.
+- Shared package strategy: none for the current production site.
 - Content source: local `.mdx` files committed to the repository.
 
 ## Stack
 
 - Package manager: pnpm.
 - Monorepo tool: pnpm workspace.
-- Backend: none in MVP.
+- Backend: none in the current production site.
 - Web frontend: Next.js App Router, React, TypeScript, Tailwind CSS, MDX.
 - UI system: Tailwind first; shadcn/ui later when component needs are clear.
 - Mobile frontend: none.
@@ -133,13 +133,13 @@ seoDescription: "Compare practical SSD upgrade options for Indian PC gamers, inc
 ## Publishing Flow
 
 ```text
-create MDX file -> add frontmatter -> upload safe image to Cloudinary if available -> paste image URL -> commit -> push -> Vercel deploys
+create MDX file -> add frontmatter -> use scan-friendly article structure -> upload safe image to Cloudinary if available -> paste image URL -> verify -> commit -> push -> Vercel deploys
 ```
 
 ## Deployment Flow
 
 ```text
-local development -> GitHub -> Vercel -> custom domain -> Search Console -> AdSense later
+local development -> GitHub -> Vercel -> https://gametechguides.com -> Search Console
 ```
 
 ## Auth And Roles
@@ -149,16 +149,16 @@ local development -> GitHub -> Vercel -> custom domain -> Search Console -> AdSe
 | Repository owner | Create and edit docs, article files, assets, and app code |
 | Reader | Browse public articles after deployment |
 
-No runtime auth or roles are required for the MVP.
+No runtime auth or roles are required for the current production site.
 
 ## External Services
 
 | Service | When Used | Notes |
 | --- | --- | --- |
 | GitHub | Source control and deployment trigger | Set up when repo is initialized |
-| Vercel | Hosting and previews | Set up after app scaffold |
-| Google Search Console | Indexing and search health | Add after custom domain is live |
-| Google Analytics or privacy-friendly analytics | Traffic analysis | Deferred; decide after launch basics are stable |
+| Vercel | Hosting and previews | Production site is hosted at `https://gametechguides.com` |
+| Google Search Console | Indexing and search health | Configured for the production domain |
+| Google Analytics or privacy-friendly analytics | Traffic analysis | Deferred; decide after content growth needs it |
 | Google AdSense | Display ads | Apply after enough original content and policy pages exist |
 | Affiliate networks | Product monetization | Add disclosures before affiliate links go live |
 

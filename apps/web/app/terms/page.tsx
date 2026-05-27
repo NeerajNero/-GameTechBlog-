@@ -15,16 +15,22 @@ export default function TermsPage() {
       title="Terms of use"
       description="GameTechGuides content is informational and should be checked against your own hardware, software, budget, and availability.">
       <p>
-        Articles are provided for general information. They are not a guarantee of
-        pricing, stock, compatibility, performance, or results.
+        Articles are provided for general information and personal decision support.
+        They are not a guarantee of pricing, stock, compatibility, performance,
+        availability, or results.
       </p>
       <p>
         Before buying hardware or changing system settings, verify compatibility with
         your device, region, warranty terms, and current software version.
       </p>
       <p>
-        Game and platform details can change over time. Articles may be updated when
-        meaningful corrections or new information are available.
+        Gaming and tech recommendations may include opinion, hands-on impressions, and
+        time-sensitive information. Details can change after publication, and readers
+        are responsible for final purchase and setup decisions.
+      </p>
+      <p>
+        GameTechGuides does not support piracy, cracked software, unauthorized
+        downloads, or instructions for bypassing platform rules.
       </p>
     </StaticPage>
   );

@@ -34,7 +34,7 @@ Useful columns:
 
 ## Ad Placement Pattern
 
-AdSense is later. Reserve the idea of these placements without implementing ads in MVP:
+AdSense is deferred. Reserve the idea of these placements without implementing ads until there is an explicit monetization task:
 
 - After the intro.
 - Between major article sections.
