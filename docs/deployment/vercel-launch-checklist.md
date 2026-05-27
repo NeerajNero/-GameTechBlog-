@@ -14,7 +14,7 @@ pnpm --dir apps/web typecheck
 pnpm --dir apps/web build
 ```
 
-- Final public contact email or contact channel is added to `/contact`.
+- Public contact email `gametechguides@gmail.com` is listed on `/contact`.
 - Production domain is `https://gametechguides.com`.
 - `NEXT_PUBLIC_SITE_URL=https://gametechguides.com` is set in Vercel Production.
 - After setting or changing `NEXT_PUBLIC_SITE_URL`, trigger a fresh Production redeploy.
