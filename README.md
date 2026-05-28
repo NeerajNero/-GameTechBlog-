@@ -1,95 +1,121 @@
 # GameTechGuides
 
-GameTechGuides is a live production content site at
-`https://gametechguides.com`.
+GameTechGuides is a live gaming and tech content site focused on practical guides,
+setup notes, hardware explainers, game streaming, retro gaming, and player-focused
+hands-on impressions.
 
-The repo started from a reusable agentic starter pack. The workflow docs,
-commands, agents, skills, and templates are still useful, but this project now
-has a specific production content-site shape:
+Live site: https://gametechguides.com
+
+## Stack
 
 - Next.js App Router
+- React
 - TypeScript
 - Tailwind CSS
-- MDX-based articles
-- Local content files in `apps/web/content/articles/`
-- Vercel deployment on the custom domain
+- MDX articles stored in the repository
+- Vercel deployment
+- Cloudinary delivery URLs for article/media images
 
-## Production Boundary
+## Repository Shape
 
-This is a production content site, not a full-stack SaaS/product app.
+```text
+apps/web/
+  app/                  Next.js routes, sitemap, robots, static pages
+  components/           Layout, blog, MDX, and SEO components
+  content/articles/     Local MDX article files
+  lib/                  Content loading, taxonomy, SEO, and site config
+  public/               Stable site assets
 
-Do not add these unless a future task explicitly changes the product scope:
+docs/                   Project, content, SEO, deployment, and feature docs
+templates/              Article and workflow templates
+```
 
-- Backend
-- Database
-- Prisma
-- NestJS
-- Docker setup
-- Auth
-- Admin panel
-- CMS
-- Payments
-- User accounts
+## Local Development
 
-## Read First
+Install dependencies from the repository root:
 
-1. [docs/project-brief.md](docs/project-brief.md)
-2. [docs/architecture.md](docs/architecture.md)
-3. [docs/context/project-map.md](docs/context/project-map.md)
-4. [docs/content-strategy.md](docs/content-strategy.md)
-5. [docs/seo-checklist.md](docs/seo-checklist.md)
-6. [docs/command-map.md](docs/command-map.md)
+```bash
+pnpm install
+```
 
-## Publishing Model
+Run the web app:
 
-Articles live as `.mdx` files in:
+```bash
+pnpm --dir apps/web dev
+```
+
+Verify the web app:
+
+```bash
+pnpm --dir apps/web lint
+pnpm --dir apps/web typecheck
+pnpm --dir apps/web build
+```
+
+For production SEO checks, build with the live site URL:
+
+```bash
+NEXT_PUBLIC_SITE_URL=https://gametechguides.com VERCEL_ENV=production pnpm --dir apps/web build
+```
+
+## Content Workflow
+
+Articles live in:
 
 ```text
 apps/web/content/articles/
 ```
 
-Publishing flow:
+Typical publishing flow:
 
 ```text
-create MDX file -> add frontmatter -> use scan-friendly article components -> upload article image to Cloudinary if available -> paste image URL -> verify -> commit -> push -> Vercel deploys
+Create MDX article
+-> add frontmatter from templates/article-frontmatter.md
+-> use the scan-friendly article pattern
+-> upload safe article images to Cloudinary when needed
+-> paste real image URLs with honest alt text, captions, and credit
+-> run lint, typecheck, and build
+-> commit and deploy through Vercel
 ```
 
-Deployment flow:
+Future articles should generally use:
 
-```text
-local development -> GitHub -> Vercel -> https://gametechguides.com -> Search Console
-```
+- `ArticleQuickTake` near the top
+- `ArticleImage` for screenshots/media
+- `ArticleReadMore` for optional deeper sections
+- `ArticleVerdict` for reviews, opinions, and impressions
+- `ArticleHighlight` and `ArticlePullQuote` sparingly
 
-## Starter-Pack Workflow
+## Production Notes
 
-The command-gated workflow is preserved:
+- Production domain: `https://gametechguides.com`
+- Production env var: `NEXT_PUBLIC_SITE_URL=https://gametechguides.com`
+- Sitemap: `https://gametechguides.com/sitemap.xml`
+- Robots: `https://gametechguides.com/robots.txt`
+- Public contact: `gametechguides@gmail.com`
 
-```text
-/classify -> /plan -> /approve -> /implement -> /verify -> /test -> /review -> /finalize -> /context-update
-```
+## Project Boundaries
 
-For current production content-site work:
+GameTechGuides is currently a static production content site. Do not add these
+unless a future task explicitly changes the product scope:
 
-- Use `/api-integrate` only if a future backend/API exists.
-- Use frontend/content/SEO docs before backend docs.
-- Treat backend, database, SDK, mobile, Docker, and observability docs as deferred reference material.
+- Backend
+- Database
+- Auth
+- CMS/admin
+- Docker infrastructure
+- Ads or analytics
+- Affiliate links
+- RSS
+- User accounts or comments
 
-## Current Status
+## Useful Docs
 
-The production site is live at `https://gametechguides.com` with published
-articles, sitemap/robots, Search Console setup, Cloudinary article images,
-favicon/logo assets, and scan-friendly article components.
-
-Ongoing work is production content growth, editorial polish, and routine SEO
-maintenance. Ads, analytics, affiliate links, backend, database, auth, CMS,
-Docker, and RSS remain deferred unless explicitly implemented later.
-
-## Local Development
-
-```bash
-pnpm install
-pnpm --dir apps/web dev
-pnpm --dir apps/web lint
-pnpm --dir apps/web typecheck
-pnpm --dir apps/web build
-```
+- [Project brief](docs/project-brief.md)
+- [Architecture](docs/architecture.md)
+- [Project map](docs/context/project-map.md)
+- [Content site patterns](docs/content-site-patterns.md)
+- [SEO checklist](docs/seo-checklist.md)
+- [Command map](docs/command-map.md)
+- [Image handling](docs/image-handling.md)
+- [Deployment checklist](docs/deployment/vercel-launch-checklist.md)
