@@ -20,7 +20,9 @@ const categoryDescriptions: Record<string, string> = {
   "Gaming Hardware":
     "Storage, cooling, laptop, monitor, accessory, and setup advice for practical gaming hardware choices.",
   "Gaming Reviews":
-    "Hands-on impressions and player-focused reviews for games, hardware, and gaming services."
+    "Hands-on impressions and player-focused reviews for games, hardware, and gaming services.",
+  "Retro Gaming":
+    "Personal stories, nostalgia pieces, and ownership memories from classic consoles, handhelds, and older gaming eras."
 };
 
 function fallbackCategoryDescription(label: string): string {
