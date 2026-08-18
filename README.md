@@ -94,6 +94,18 @@ Future articles should generally use:
 - Robots: `https://gametechguides.com/robots.txt`
 - Public contact: `gametechguides@gmail.com`
 
+### AdSense activation
+
+Ad code is env-gated and inert until a publisher ID is configured:
+
+- Set `NEXT_PUBLIC_ADSENSE_CLIENT_ID=ca-pub-XXXXXXXXXXXXXXXX` in Vercel and redeploy.
+- This injects the AdSense loader script on every page (used by Google for site
+  verification/review) and makes `/ads.txt` serve the matching Google entry.
+- After approval, enable Auto ads in the AdSense dashboard (no code change), and
+  turn on Google's GDPR consent message in AdSense Privacy & messaging for EEA/UK
+  visitors before serving personalized ads there.
+- See `apps/web/lib/site/adsense.ts` for details.
+
 ## Project Boundaries
 
 GameTechGuides is currently a static production content site. Do not add these
@@ -104,7 +116,7 @@ unless a future task explicitly changes the product scope:
 - Auth
 - CMS/admin
 - Docker infrastructure
-- Ads or analytics
+- Analytics
 - Affiliate links
 - RSS
 - User accounts or comments
