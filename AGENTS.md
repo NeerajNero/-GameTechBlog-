@@ -1,61 +1,27 @@
 # Agent Index
 
-Use these role prompts when assigning focused work.
+This repo is the GameTechGuides production content site (live at https://gametechguides.com): Next.js App Router + Tailwind + local MDX articles under `apps/web/`. There is no backend, database, Docker, SDK, or mobile target — see README "Project Boundaries". Start with [START_HERE.md](START_HERE.md) and [FLOW_README.md](FLOW_README.md).
 
-## Fullstack Agent
+## Wired for Claude Code (`.claude/`)
 
-Use [agents/fullstack-agent.md](agents/fullstack-agent.md) when one person or agent owns a full vertical slice.
+These are the live, invocable definitions:
 
-Best for:
+- Subagents (`.claude/agents/`): `content-frontend` for site UI/SEO/layout work, `site-reviewer` for correctness + policy review, `article-writer` for MDX article drafting and expansion.
+- Skills (`.claude/skills/`): `publish-article` for the end-to-end article workflow, `adsense-compliance` for monetization/policy tasks.
+- Slash commands (`.claude/commands/`): `/classify`, `/plan`, `/approve`, `/implement`, `/verify`, `/test`, `/review`, `/finalize`, `/context-update`, and support commands — thin wrappers around the full specs in `commands/`.
 
-- New feature slices.
-- Backend plus frontend changes.
-- Schema, API, SDK, and UI work in one flow.
+## Reference prompts (root `agents/`)
 
-## Backend Agent
+The original starter-pack role prompts remain as reference documentation:
 
-Use [agents/backend-agent.md](agents/backend-agent.md) for backend-only ownership.
+- [agents/frontend-agent.md](agents/frontend-agent.md) — generic web/mobile frontend prompt; the wired `content-frontend` subagent is the content-site adaptation.
+- [agents/review-agent.md](agents/review-agent.md) — generic review prompt; the wired `site-reviewer` subagent is the adaptation.
+- [agents/fullstack-agent.md](agents/fullstack-agent.md), [agents/backend-agent.md](agents/backend-agent.md), [agents/infra-agent.md](agents/infra-agent.md) — deferred; only relevant if a future task explicitly reintroduces backend/infra scope. The same applies to the starter-pack skills in `skills/` (NestJS, Prisma, Docker, BullMQ, Expo, SDK).
 
-Best for:
+## Key facts agents keep rediscovering
 
-- Migrations.
-- NestJS modules.
-- Auth and permissions.
-- Queues and background jobs.
-- Swagger/OpenAPI contracts.
-
-## Frontend Agent
-
-Use [agents/frontend-agent.md](agents/frontend-agent.md) for UI and client integration.
-
-Best for:
-
-- Next.js route groups.
-- Expo Router app targets and route groups.
-- React Query hooks.
-- Generated SDK usage.
-- Mobile app config, EAS config, and shared mobile packages.
-- UI states and component composition.
-
-## Infra Agent
-
-Use [agents/infra-agent.md](agents/infra-agent.md) for local infrastructure.
-
-Best for:
-
-- Docker compose.
-- `.env.example`.
-- Startup and reset commands.
-- Observability services.
-
-## Review Agent
-
-Use [agents/review-agent.md](agents/review-agent.md) for correctness reviews.
-
-Best for:
-
-- Migration review.
-- API contract review.
-- Auth and permission review.
-- SDK drift review.
-- Verification gaps.
+- Verify with: `pnpm --dir apps/web lint && pnpm --dir apps/web typecheck && pnpm --dir apps/web build`.
+- Production indexing requires `VERCEL_ENV=production` + `NEXT_PUBLIC_SITE_URL` (see `apps/web/lib/seo/urls.ts`).
+- AdSense is env-gated via `NEXT_PUBLIC_ADSENSE_CLIENT_ID` (`apps/web/lib/site/adsense.ts`, `/ads.txt` route); no ad code loads until it is set.
+- Article frontmatter is validated at build time by `apps/web/lib/content/validation.ts`; slug must match filename.
+- Monetization, deployment, and third-party-script changes are always the "risky" lane in [docs/flow-policy.md](docs/flow-policy.md).

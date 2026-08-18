@@ -96,7 +96,8 @@ Use for higher-impact changes:
 
 - Deployment configuration.
 - Analytics or third-party scripts.
-- AdSense integration.
+- AdSense integration. (Env-gated wiring landed 2026-08-18; activation and any
+  placement work remain risky-lane tasks — see the `adsense-compliance` skill.)
 - Affiliate link automation.
 - Major content-routing changes.
 - Any future backend, database, auth, CMS, or payment introduction.
@@ -145,11 +146,24 @@ templates/social-snippets.md
 idea -> article brief -> MDX draft -> SEO check -> image check -> commit -> push -> Vercel deploys
 ```
 
+## Claude Code Wiring
+
+The invocable definitions live under `.claude/` (root `agents/`, `skills/`, and
+`commands/` are reference docs that Claude Code does not auto-discover):
+
+- `.claude/agents/`: `content-frontend`, `site-reviewer`, `article-writer`.
+- `.claude/skills/`: `publish-article`, `adsense-compliance`.
+- `.claude/commands/`: wrappers for `/classify`, `/plan`, `/approve`,
+  `/implement`, `/verify`, `/test`, `/review`, `/finalize`, `/context-update`,
+  `/revise-plan`, `/status`, `/select`, `/block`, `/context-status`,
+  `/api-integrate` — each defers to its full spec in `commands/`.
+
 ## Agent Selection
 
-- Frontend Agent: Next.js pages, components, MDX rendering, styling, SEO metadata.
-- Review Agent: SEO correctness, route behavior, content workflow, accessibility, monetization readiness.
-- Fullstack Agent: Avoid for MVP unless a future task intentionally crosses into backend territory.
+- `content-frontend` (wired; adapts Frontend Agent): Next.js pages, components, MDX rendering, styling, SEO metadata.
+- `site-reviewer` (wired; adapts Review Agent): SEO correctness, route behavior, content workflow, accessibility, monetization/AdSense policy readiness.
+- `article-writer` (wired): drafting and expanding MDX articles.
+- Fullstack Agent: Avoid unless a future task intentionally crosses into backend territory.
 - Backend Agent: Deferred.
 - Infra Agent: Use later for Vercel/domain/Search Console flow, not Docker.
 

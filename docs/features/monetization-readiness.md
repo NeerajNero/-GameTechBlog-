@@ -13,13 +13,15 @@ Prepare the blog for monetization while keeping trust and readability first.
 
 ## Required Before AdSense
 
-- Enough original, useful content.
-- About page.
-- Contact page.
-- Privacy policy.
-- Clear navigation.
-- No placeholder pages.
-- Clean mobile reading experience.
+- Enough original, useful content. (In progress — publish more; thin articles expanded 2026-08-18.)
+- About page. (Done)
+- Contact page. (Done)
+- Privacy policy with Google/third-party cookie and opt-out disclosures. (Done 2026-08-18)
+- Clear navigation. (Done)
+- No placeholder pages. (Done)
+- Clean mobile reading experience. (Done)
+- ads.txt and AdSense loader wired env-gated behind `NEXT_PUBLIC_ADSENSE_CLIENT_ID`. (Done 2026-08-18)
+- GDPR consent message: enable in AdSense Privacy & messaging at application time (no code).
 
 ## Affiliate Content Patterns
 

@@ -122,7 +122,12 @@ Smoke check:
 /privacy-policy
 /sitemap.xml
 /robots.txt
+/ads.txt   (404 until NEXT_PUBLIC_ADSENSE_CLIENT_ID is set; must serve the Google entry once configured)
 ```
+
+## Monetization Env Vars
+
+- `NEXT_PUBLIC_ADSENSE_CLIENT_ID=ca-pub-...` activates the AdSense loader script and `/ads.txt` (see `apps/web/lib/site/adsense.ts`). Leave unset to ship zero ad code.
 
 ## Feature Flow
 

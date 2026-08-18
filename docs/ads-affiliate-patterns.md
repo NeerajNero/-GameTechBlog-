@@ -34,7 +34,7 @@ Useful columns:
 
 ## Ad Placement Pattern
 
-AdSense is deferred. Reserve the idea of these placements without implementing ads until there is an explicit monetization task:
+AdSense is wired but env-gated (2026-08-18): the loader script and `/ads.txt` activate only when `NEXT_PUBLIC_ADSENSE_CLIENT_ID` is set in Vercel (see `apps/web/lib/site/adsense.ts`). Prefer Auto ads first after approval. If manual placements come later, use these positions:
 
 - After the intro.
 - Between major article sections.
