@@ -32,6 +32,17 @@ export default function TermsPage() {
         GameTechGuides does not support piracy, cracked software, unauthorized
         downloads, or instructions for bypassing platform rules.
       </p>
+      <p>
+        Original articles, custom graphics, and site design are the property of
+        GameTechGuides. Short quotes with a link back are welcome; republishing full
+        articles without permission is not. Game names, screenshots, and product names
+        belong to their respective owners and are used for commentary and guidance.
+      </p>
+      <p>
+        The site may display advertising, such as Google AdSense. How advertising and
+        cookies work on the site is described in the privacy policy. Ads do not imply
+        endorsement of the advertised product by GameTechGuides.
+      </p>
     </StaticPage>
   );
 }
