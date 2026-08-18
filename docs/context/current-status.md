@@ -58,6 +58,22 @@ scan-friendly article components, and future article pattern documentation.
 - Article templates and content/SEO workflow docs now point future articles toward the scan-friendly pattern.
 - Trust and policy pages use production/live-site wording instead of launch-placeholder or MVP wording.
 - Public contact email is configured as `gametechguides@gmail.com`.
+- AdSense readiness pass completed (2026-08-18): privacy policy rewritten with the
+  Google/third-party cookie disclosures and opt-out links required by AdSense's
+  Required Content policy; terms gained copyright and advertising clauses.
+- AdSense integration is wired env-gated: `apps/web/lib/site/adsense.ts`,
+  conditional loader script in `apps/web/app/layout.tsx`, and an
+  `apps/web/app/ads.txt/route.ts` route. Zero ad code ships until
+  `NEXT_PUBLIC_ADSENSE_CLIENT_ID` is set in Vercel.
+- Default social share image created at `apps/web/public/images/og-default.jpg`
+  (was previously referenced in site config but missing).
+- Three thin articles expanded to ~1,000+ words each (router setup, SSD setup,
+  Elden Ring beginner tips) with `updatedAt` bumped to 2026-08-18.
+- Claude Code wiring added under `.claude/`: content-site subagents
+  (`content-frontend`, `site-reviewer`, `article-writer`), skills
+  (`publish-article`, `adsense-compliance`), and slash-command wrappers for the
+  starter-pack feature flow. Root `agents/`, `skills/`, and `commands/` remain as
+  reference documentation; `AGENTS.md` explains the split.
 
 ## Current Phase
 
@@ -66,7 +82,7 @@ and live-site maintenance.
 
 ## Deferred
 
-- AdSense application.
+- AdSense application (code-side readiness is done; apply after more articles are published and indexed).
 - Analytics.
 - Affiliate links.
 - RSS feed.
@@ -75,8 +91,9 @@ and live-site maintenance.
 
 ## Next Recommended Task
 
-Continue publishing scan-friendly original articles and validate representative
-live pages with Google Rich Results Test.
+Continue publishing scan-friendly original articles (the main remaining AdSense
+lever), then apply for AdSense using the `adsense-compliance` skill checklist.
+Also validate representative live pages with Google Rich Results Test.
 
 ## Known Constraints
 
@@ -88,7 +105,7 @@ live pages with Google Rich Results Test.
 - Stable favicon assets use `apps/web/public/favicon.ico`, `apps/web/app/icon.png`, and `apps/web/app/apple-icon.png`.
 - The wide logo asset appears to have a checkerboard-style background and should be re-exported or cleaned before public use.
 - Cloudinary is delivery-only; no upload/admin system, SDK, signed uploads, credentials, or backend routes are included.
-- RSS, ads, analytics, affiliate links, backend, database, auth, CMS, and Docker remain deferred.
+- RSS, analytics, affiliate links, backend, database, auth, CMS, and Docker remain deferred; AdSense code is wired but inert until `NEXT_PUBLIC_ADSENSE_CLIENT_ID` is set.
 - Vercel preview deployments can build without `NEXT_PUBLIC_SITE_URL` and should remain noindex.
 - Production Vercel should keep `NEXT_PUBLIC_SITE_URL=https://gametechguides.com`.
 - The public contact email is `gametechguides@gmail.com`.

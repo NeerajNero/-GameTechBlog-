@@ -31,6 +31,22 @@ Record durable project decisions that future agents should not rediscover.
 - Consequences: No custom server deployment is needed for MVP.
 - Related files: `docs/decisions/0003-vercel-github-domain-flow.md`
 
+### DEC-004: Env-Gated AdSense Integration
+
+- Date: 2026-08-18
+- Status: active
+- Context: The site is preparing an AdSense application. Ad code must exist for
+  Google's verification/review, but no ads should load before that.
+- Decision: Wire AdSense behind `NEXT_PUBLIC_ADSENSE_CLIENT_ID` — a validated
+  helper (`apps/web/lib/site/adsense.ts`), a conditional loader script in the root
+  layout, and an `/ads.txt` route that 404s until configured. The privacy policy
+  discloses Google advertising cookies and opt-outs regardless of the env var.
+- Consequences: Activation is a Vercel env change plus redeploy, with no code
+  edits at review time. The GDPR consent message is handled in AdSense
+  Privacy & messaging, not in repo code.
+- Related files: `apps/web/lib/site/adsense.ts`, `apps/web/app/layout.tsx`,
+  `apps/web/app/ads.txt/route.ts`, `apps/web/app/privacy-policy/page.tsx`
+
 ## Deferred Decisions
 
 - Analytics provider.

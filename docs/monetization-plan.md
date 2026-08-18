@@ -35,13 +35,19 @@ Rules:
 
 ## Phase 3: AdSense
 
+Readiness status (2026-08-18): policy pages exist, the privacy policy carries the
+required Google/cookie disclosures, thin articles were expanded, `/ads.txt` and the
+AdSense loader are wired env-gated behind `NEXT_PUBLIC_ADSENSE_CLIENT_ID`, and a
+default OG image exists. Remaining lever before applying: more original articles.
+
 AdSense should wait until:
 
-- The site has enough original content.
-- Policy pages exist.
-- Navigation is clear.
+- The site has enough original content (the main remaining item).
 - Content is indexed.
 - Pages are not thin or placeholder-heavy.
+
+Activation and the full pre-application checklist live in the `adsense-compliance`
+skill (`.claude/skills/adsense-compliance/SKILL.md`) and README "AdSense activation".
 
 Future ad placements:
 
