@@ -88,7 +88,7 @@ Flow:
 /context-update docs/features/final/<feature>.final.md
 ```
 
-Skip `/api-integrate` for MVP static-site work.
+(`/api-integrate` was removed — this site has no API/SDK layer.)
 
 ### Risky Feature
 
@@ -148,24 +148,25 @@ idea -> article brief -> MDX draft -> SEO check -> image check -> commit -> push
 
 ## Claude Code Wiring
 
-The invocable definitions live under `.claude/` (root `agents/`, `skills/`, and
-`commands/` are reference docs that Claude Code does not auto-discover):
+The invocable definitions live under `claude-setup/` (copy or symlink into
+`.claude/` to activate; root `commands/` holds the full command specs):
 
-- `.claude/agents/`: `content-frontend`, `site-reviewer`, `article-writer`.
-- `.claude/skills/`: `publish-article`, `adsense-compliance`.
-- `.claude/commands/`: wrappers for `/classify`, `/plan`, `/approve`,
+- `claude-setup/agents/`: `content-frontend`, `site-reviewer`, `article-writer`.
+- `claude-setup/skills/`: `publish-article`, `adsense-compliance`.
+- `claude-setup/commands/`: wrappers for `/classify`, `/plan`, `/approve`,
   `/implement`, `/verify`, `/test`, `/review`, `/finalize`, `/context-update`,
-  `/revise-plan`, `/status`, `/select`, `/block`, `/context-status`,
-  `/api-integrate` — each defers to its full spec in `commands/`.
+  `/revise-plan`, `/status`, `/select`, `/block`, `/context-status` — each
+  defers to its full spec in `commands/`.
 
 ## Agent Selection
 
-- `content-frontend` (wired; adapts Frontend Agent): Next.js pages, components, MDX rendering, styling, SEO metadata.
-- `site-reviewer` (wired; adapts Review Agent): SEO correctness, route behavior, content workflow, accessibility, monetization/AdSense policy readiness.
+- `content-frontend` (wired): Next.js pages, components, MDX rendering, styling, SEO metadata, sitemap/robots/feed.
+- `site-reviewer` (wired): SEO correctness, route behavior, content workflow, accessibility, monetization/AdSense policy readiness.
 - `article-writer` (wired): drafting and expanding MDX articles.
-- Fullstack Agent: Avoid unless a future task intentionally crosses into backend territory.
-- Backend Agent: Deferred.
-- Infra Agent: Use later for Vercel/domain/Search Console flow, not Docker.
+
+The generic starter-pack role prompts (backend, infra, fullstack) and their
+skills were removed on 2026-08-30 — this repo is a static content site. Recover
+them from git history if backend scope ever returns.
 
 ## Verification
 

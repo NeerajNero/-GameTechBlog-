@@ -11,7 +11,6 @@ Use them as slash-command prompts or copy the command body into your agent messa
 - [`/approve`](approve.md): record human approval for one feature plan. No code changes.
 - [`/implement`](implement.md): generate code for one approved feature using existing skills and agents.
 - [`/verify`](verify.md): verify an implemented feature against the plan.
-- [`/api-integrate`](api-integrate.md): wire verified code to OpenAPI/SDK wrappers and web/mobile API callers.
 - [`/test`](test.md): run or add targeted tests for the implemented feature.
 - [`/review`](review.md): review the implemented feature for correctness.
 - [`/finalize`](finalize.md): prepare final handoff after review.
@@ -32,7 +31,6 @@ Use them as slash-command prompts or copy the command body into your agent messa
 - Tiny changes may skip `/plan` and `/approve` only when classified as tiny and scoped clearly.
 - `/plan` and `/approve` do not edit application code.
 - `/implement` requires an approved plan or approval file, except for explicitly classified tiny changes.
-- `/api-integrate` requires a verified implementation report.
 - `/finalize` requires no blocking review findings.
 - `/context-update` should run after `/finalize` for normal and risky features.
 - Each command updates durable markdown artifacts under `docs/features`.

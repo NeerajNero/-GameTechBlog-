@@ -31,7 +31,10 @@
 - [ ] `<ArticleVerdict>` is used for reviews, opinions, and impressions when a final take is useful.
 - [ ] Article includes practical advice, not generic filler.
 - [ ] India-specific context is included where relevant.
-- [ ] Internal links are included.
+- [ ] 2–3 contextual in-body internal links to related articles (`[text](/articles/<slug>)`).
+- [ ] 1–2 older related articles updated to link back, with their `updatedAt` bumped.
+- [ ] H2/H3 headings are descriptive standalone phrases with no duplicates (they become the sidebar table of contents and anchor ids).
+- [ ] No manual author bio section (the bio box renders automatically).
 - [ ] Product claims are checked.
 - [ ] Affiliate disclosure is included if needed.
 
@@ -43,12 +46,14 @@
 - [ ] Alt text describes the actual image.
 - [ ] Credit is included when the license/source requires it.
 - [ ] Image is not generic or misleading.
+- [ ] Real photos of owned hardware/setups are preferred over AI-generated graphics; AI images only when no real photo is possible, always with an honest credit.
 - [ ] Image usage is legal: owned, licensed, public-domain, or otherwise allowed.
 - [ ] Cloudinary free-plan usage is reasonable for the expected traffic.
 
 ## Publish
 
 - [ ] `draft: false` only when ready.
-- [ ] Preview page checked locally.
+- [ ] Preview page checked locally, including the sidebar table of contents and author bio box.
+- [ ] Article appears in `/sitemap.xml` and `/feed.xml` in the local build.
 - [ ] Commit includes article changes; Cloudinary assets are already uploaded manually if used.
 - [ ] Push triggers Vercel deployment.

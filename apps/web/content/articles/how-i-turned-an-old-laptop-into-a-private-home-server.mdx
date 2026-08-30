@@ -16,7 +16,7 @@ tags:
   - Linux
 author: "Neeraj Kumar Sharma"
 publishedAt: "2026-08-18"
-updatedAt: "2026-08-18"
+updatedAt: "2026-08-30"
 coverImage: "https://res.cloudinary.com/dmnkwzic2/image/upload/v1787076154/home-lab-server-latest_gopoaw.jpg"
 coverImageAlt: "AI-generated illustration of a private home lab server setup with networking and containerized services"
 coverImageCredit: "AI-generated illustration"
@@ -66,7 +66,7 @@ The first step was installing Ubuntu Server — the headless version, no desktop
 Server LAN IP: 192.168.0.51
 ```
 
-With a DHCP reservation on the router, the server always gets the same IP on the local network. Predictable internal routing, stable Docker networking. Simple but important.
+With a DHCP reservation on the router, the server always gets the same IP on the local network. Predictable internal routing, stable Docker networking. Simple but important — the same unglamorous network hygiene that makes [PS Remote Play and Steam Link behave](/articles/best-router-setup-ps-remote-play-steam-link).
 
 The lid is closed permanently. Suspend and hibernate are masked out via systemd so the machine never tries to sleep. It just runs.
 
@@ -170,7 +170,7 @@ The media directory structure on the server:
 /docker
 ```
 
-Clean, predictable, easy to back up incrementally.
+Clean, predictable, easy to back up incrementally. The thinking mirrors [my gaming SSD setup](/articles/best-ssd-setup-large-gaming-libraries): active data on the tier that needs to be fast, everything else on cheaper storage.
 
 ## Reliability: the things nobody talks about
 

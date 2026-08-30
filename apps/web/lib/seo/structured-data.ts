@@ -1,5 +1,5 @@
 import type { Article } from "@/lib/content/types";
-import { siteConfig } from "@/lib/site/config";
+import { getSocialLinks, siteConfig } from "@/lib/site/config";
 import { absoluteUrl } from "@/lib/seo/urls";
 import { getRenderableImageSrc } from "@/lib/content/images";
 
@@ -67,7 +67,9 @@ export function createPersonJsonLd(): JsonRecord {
     "@context": "https://schema.org",
     "@type": "Person",
     name: siteConfig.author,
-    url: absoluteUrl("/about")
+    description: siteConfig.authorBio,
+    url: absoluteUrl("/about"),
+    sameAs: getSocialLinks().map((link) => link.href)
   });
 }
 
@@ -83,11 +85,17 @@ export function createArticleJsonLd(article: Article): JsonRecord {
     dateModified: article.updatedAt,
     author: {
       "@type": "Person",
-      name: article.author
+      name: article.author,
+      url: absoluteUrl("/about"),
+      sameAs: getSocialLinks().map((link) => link.href)
     },
     publisher: {
       "@type": "Organization",
-      name: siteConfig.name
+      name: siteConfig.name,
+      logo: {
+        "@type": "ImageObject",
+        url: absoluteUrl(siteConfig.logoIcon)
+      }
     },
     image: safeImageUrl(article.coverImage),
     mainEntityOfPage: {

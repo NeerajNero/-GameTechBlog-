@@ -1,12 +1,15 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArticleHeader } from "@/components/blog/article-header";
+import { AuthorBio } from "@/components/blog/author-bio";
 import { ArticleQuickTake } from "@/components/blog/article-quick-take";
 import { MdxContent } from "@/components/blog/mdx-content";
 import { RelatedArticles } from "@/components/blog/related-articles";
+import { TableOfContents } from "@/components/blog/table-of-contents";
 import { JsonLd } from "@/components/seo/json-ld";
 import { getArticleBySlug, getArticleSlugs } from "@/lib/content/articles";
 import { getRelatedArticles } from "@/lib/content/taxonomy";
+import { extractHeadings } from "@/lib/content/toc";
 import { createArticleMetadata } from "@/lib/seo/metadata";
 import {
   createArticleJsonLd,
@@ -44,6 +47,7 @@ export default function ArticlePage({ params }: ArticlePageProps) {
   }
 
   const relatedArticles = getRelatedArticles(article);
+  const headings = extractHeadings(article.content);
   const categoryHref = `/categories/${slugify(article.category)}`;
   const hasInlineQuickTake = article.content.includes("<ArticleQuickTake");
 
@@ -78,15 +82,16 @@ export default function ArticlePage({ params }: ArticlePageProps) {
           {hasInlineQuickTake ? null : <ArticleQuickTake article={article} />}
           <div className="mx-auto mt-8 max-w-3xl">
             <MdxContent source={article.content} />
+            <AuthorBio />
           </div>
         </div>
         <aside className="hidden lg:block lg:pt-1">
-          <div className="sticky top-6 rounded-xl border border-slate-200 bg-white p-5 shadow-soft">
+          <div className="sticky top-6 max-h-[calc(100vh-3rem)] overflow-y-auto rounded-xl border border-slate-200 bg-white p-5 shadow-soft">
             <p className="text-xs font-black uppercase tracking-wide text-slate-400">
               In this article
             </p>
-            <div className="mt-4 space-y-3 text-sm leading-6 text-slate-600">
-              <p>{article.description}</p>
+            <TableOfContents headings={headings} />
+            <div className="mt-4 border-t border-slate-100 pt-4 text-sm">
               <Link
                 href={categoryHref}
                 className="inline-flex font-bold text-circuit transition hover:text-ink"

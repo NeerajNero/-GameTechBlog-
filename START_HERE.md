@@ -83,4 +83,4 @@ Use the preserved starter-pack command workflow, scoped to static site work:
 /context-update docs/features/final/<feature>.final.md
 ```
 
-Skip `/api-integrate` unless a future backend/API is introduced.
+(`/api-integrate` was removed — this site has no API/SDK layer.)

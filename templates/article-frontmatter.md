@@ -28,7 +28,11 @@ seoDescription: ""
 
 - Use `draft: true` until the article is ready.
 - Keep `slug` stable after publishing.
-- Use `updatedAt` for meaningful content updates.
+- Use `updatedAt` for meaningful content updates; it feeds the sitemap and the visible "Updated" date.
+- H2/H3 headings auto-generate the sidebar table of contents and anchor ids — write descriptive standalone phrases, no duplicate heading text.
+- Include 2–3 contextual in-body links to related articles (`[text](/articles/<slug>)`) and add back-links from 1–2 older articles.
+- The author bio box renders automatically after the body; never write a manual bio section.
+- Prefer real photos of owned hardware/setups over AI-generated graphics.
 - Leave `coverImage` empty until a real image exists.
 - For article/media images, upload manually to Cloudinary and paste the secure delivery URL, usually from `gaming-tech-blog/articles/<slug>/...`.
 - Use `coverImageAlt` only to describe the actual image. Do not invent image details.

@@ -145,7 +145,7 @@ Use the starter-pack agentic workflow, but apply it to static site features.
 /context-update docs/features/final/<feature>.final.md
 ```
 
-Skip `/api-integrate` unless a future backend/API is introduced.
+(`/api-integrate` was removed — this site has no API/SDK layer.)
 
 ## Not Applicable Currently
 

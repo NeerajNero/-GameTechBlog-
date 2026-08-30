@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { siteConfig } from "@/lib/site/config";
+import { getSocialLinks, siteConfig } from "@/lib/site/config";
 
 const footerLinks = [
   { href: "/articles", label: "Articles" },
@@ -32,7 +32,31 @@ export function SiteFooter() {
               {link.label}
             </Link>
           ))}
+          <a
+            href="/feed.xml"
+            className="font-semibold hover:text-circuit"
+          >
+            RSS
+          </a>
         </nav>
+        {getSocialLinks().length > 0 ? (
+          <nav
+            className="flex flex-wrap gap-x-4 gap-y-2"
+            aria-label="Social profiles"
+          >
+            {getSocialLinks().map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                rel="me noopener noreferrer"
+                target="_blank"
+                className="font-semibold hover:text-circuit"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+        ) : null}
       </div>
     </footer>
   );
