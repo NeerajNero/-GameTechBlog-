@@ -15,7 +15,7 @@ export default function PrivacyPolicyPage() {
       title="Privacy policy"
       description="This policy explains what data is processed when you read GameTechGuides, how cookies and advertising work on the site, and the choices you have.">
       <p>
-        <strong>Last updated: August 18, 2026.</strong> GameTechGuides
+        <strong>Last updated: August 30, 2026.</strong> GameTechGuides
         (gametechguides.com) is a public gaming and tech publication. The site does
         not require accounts, does not offer comments, and does not ask you to submit
         personal information to read articles.
@@ -89,10 +89,29 @@ export default function PrivacyPolicyPage() {
 
       <h2>Analytics</h2>
       <p>
-        The site may use privacy-respecting, aggregate analytics or hosting-provided
-        traffic statistics to understand which articles are useful. If a third-party
-        analytics tool that uses cookies is added, this policy will be updated to name
-        it and explain the data it collects.
+        GameTechGuides uses Google Analytics 4 to understand aggregate traffic:
+        which articles are read, roughly where visitors come from, and how the site
+        is discovered. Google Analytics uses cookies and similar identifiers to
+        distinguish visits; it does not log full IP addresses, and the reports this
+        site sees are aggregate statistics, not individual reader profiles.
+      </p>
+      <p>
+        You can opt out of Google Analytics across all websites with the{" "}
+        <a
+          className="font-bold text-circuit"
+          href="https://tools.google.com/dlpage/gaoptout"
+          rel="noopener noreferrer">
+          Google Analytics opt-out browser add-on
+        </a>
+        , or block its cookies in your browser settings; the site remains fully
+        readable either way. How Google processes this data is described at{" "}
+        <a
+          className="font-bold text-circuit"
+          href="https://policies.google.com/technologies/partner-sites"
+          rel="noopener noreferrer">
+          policies.google.com/technologies/partner-sites
+        </a>
+        .
       </p>
 
       <h2>Your rights and choices</h2>
