@@ -31,9 +31,11 @@ export function generateMetadata({ params }: TagPageProps) {
 
   return createPageMetadata({
     title: `${tag.label} Articles`,
-    description: `Practical gaming-tech articles tagged ${tag.label}. Browse ${
-      tag.count
-    } published ${tag.count === 1 ? "article" : "articles"} for this topic.`,
+    description: `Hands-on gaming guides, reviews, and setup advice tagged ${
+      tag.label
+    }. Browse ${tag.count} published ${
+      tag.count === 1 ? "article" : "articles"
+    } for this topic.`,
     path: `/tags/${tag.slug}`
   });
 }

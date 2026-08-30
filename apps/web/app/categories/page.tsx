@@ -6,7 +6,7 @@ import { createPageMetadata } from "@/lib/seo/metadata";
 export const metadata = createPageMetadata({
   title: "Categories",
   description:
-    "Browse gaming-tech articles by category, including gaming guides, streaming setup notes, and hardware advice.",
+    "Browse articles by category — gaming guides, game reviews, hardware and setup advice, retro gaming, and hands-on tech projects.",
   path: "/categories"
 });
 
@@ -18,8 +18,8 @@ export default function CategoriesPage() {
       <header className="mb-8">
         <SectionHeading
           eyebrow="Browse by category"
-          title="Gaming-tech categories"
-          description="Start with the broad topic that matches the problem you are solving, then move into the individual guides."
+          title="Browse by category"
+          description="From setup and hardware advice to game reviews, retro deep-dives, and DIY tech projects — start with the broad topic, then move into the individual articles."
           level={1}
         />
       </header>

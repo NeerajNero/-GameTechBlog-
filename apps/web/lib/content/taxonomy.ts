@@ -22,11 +22,17 @@ const categoryDescriptions: Record<string, string> = {
   "Gaming Reviews":
     "Hands-on impressions and player-focused reviews for games, hardware, and gaming services.",
   "Retro Gaming":
-    "Personal stories, nostalgia pieces, and ownership memories from classic consoles, handhelds, and older gaming eras."
+    "Personal stories, nostalgia pieces, and ownership memories from classic consoles, handhelds, and older gaming eras.",
+  "Gaming Setup":
+    "Real-world setup breakdowns covering multi-platform play, desk gear, and how it all fits together in practice.",
+  Opinion:
+    "Personal takes on games, hardware, and gaming culture — written from first-hand experience, not press releases.",
+  "Tech Projects":
+    "Hands-on DIY builds and experiments, from home servers to repurposed hardware, documented step by step."
 };
 
 function fallbackCategoryDescription(label: string): string {
-  return `Practical gaming-tech articles and setup notes for ${label.toLowerCase()}.`;
+  return `Hands-on guides, reviews, and real-world advice for ${label.toLowerCase()}.`;
 }
 
 function sortTerms<T extends TaxonomyTerm>(terms: T[]): T[] {

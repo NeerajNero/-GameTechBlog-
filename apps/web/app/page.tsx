@@ -12,7 +12,7 @@ import { createPersonJsonLd, createWebsiteJsonLd } from "@/lib/seo/structured-da
 export const metadata = createPageMetadata({
   title: "Gaming and Tech Guides for Practical Players",
   description:
-    "PC, console, streaming, and hardware guides written for practical gaming setups.",
+    "Hands-on gaming hardware guides, honest game reviews, beginner tips, and retro deep-dives for PC, console, and handheld players.",
   path: "/"
 });
 
@@ -32,16 +32,18 @@ export default function HomePage() {
         <section className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
           <div className="space-y-7">
             <div className="inline-flex rounded-md border border-circuit/20 bg-circuit/10 px-3 py-1 text-sm font-bold text-circuit">
-              PC, console, streaming, and gaming hardware
+              Setups, hardware, and the games worth playing
             </div>
             <div className="space-y-4">
               <h1 className="text-4xl font-black leading-tight text-ink sm:text-6xl">
-                Practical gaming-tech guides for better setups and smarter upgrades.
+                Real-world gaming guides from smarter setups to the games worth
+                your time.
               </h1>
               <p className="max-w-2xl text-lg leading-8 text-slate-600">
-                Clear advice for PC players, console owners, streamers, and Indian
-                gamers comparing routers, SSDs, controllers, monitors, laptops, and
-                gameplay setup choices.
+                Hands-on advice on routers, SSDs, monitors, controllers, and gaming
+                laptops, plus honest game reviews, beginner tips, and retro
+                deep-dives. Written from real experience for PC, console, and
+                handheld players, with India-specific buying advice.
               </p>
             </div>
             <div className="flex flex-wrap gap-3">
@@ -59,7 +61,7 @@ export default function HomePage() {
               </Link>
             </div>
             <div className="grid max-w-2xl gap-3 sm:grid-cols-3">
-              {["Guides", "Reviews", "Buying guides"].map((item) => (
+              {["Setup guides", "Game reviews", "Buying advice"].map((item) => (
                 <div
                   key={item}
                   className="rounded-lg border border-slate-200 bg-white p-4 text-sm font-bold text-slate-700 shadow-soft"

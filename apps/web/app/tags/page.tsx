@@ -6,7 +6,7 @@ import { createPageMetadata } from "@/lib/seo/metadata";
 export const metadata = createPageMetadata({
   title: "Tags",
   description:
-    "Browse gaming-tech articles by detailed tags across games, hardware, streaming, storage, and setup topics.",
+    "Browse articles by tag across specific games, platforms, hardware, streaming, storage, retro gaming, and setup topics.",
   path: "/tags"
 });
 
@@ -18,8 +18,8 @@ export default function TagsPage() {
       <header className="mb-8">
         <SectionHeading
           eyebrow="Browse by tag"
-          title="Gaming-tech tags"
-          description="Use tags to find narrower guides for specific games, platforms, accessories, and setup problems."
+          title="Browse by tag"
+          description="Use tags to find articles on specific games, platforms, accessories, and setup problems."
           level={1}
         />
       </header>
