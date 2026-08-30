@@ -29,7 +29,7 @@ export function generateMetadata({ params }: TagPageProps) {
     };
   }
 
-  return createPageMetadata({
+  const metadata = createPageMetadata({
     title: `${tag.label} Articles`,
     description: `Hands-on gaming guides, reviews, and setup advice tagged ${
       tag.label
@@ -38,6 +38,14 @@ export function generateMetadata({ params }: TagPageProps) {
     } for this topic.`,
     path: `/tags/${tag.slug}`
   });
+
+  // Tag pages listing a single article are thin content; keep them browsable
+  // but out of the index until the tag accumulates more articles.
+  if (tag.count < 2) {
+    return { ...metadata, robots: { index: false, follow: true } };
+  }
+
+  return metadata;
 }
 
 export default function TagPage({ params }: TagPageProps) {

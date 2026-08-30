@@ -68,12 +68,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6
   }));
 
-  const tagEntries = getTags().map((tag) => ({
-    url: absoluteUrl(`/tags/${tag.slug}`),
-    lastModified: latestUpdate(getArticlesByTagSlug(tag.slug)),
-    changeFrequency: "weekly" as const,
-    priority: 0.5
-  }));
+  // Single-article tag pages are noindexed (see app/tags/[tag]/page.tsx),
+  // so only tags with enough content belong in the sitemap.
+  const tagEntries = getTags()
+    .filter((tag) => tag.count >= 2)
+    .map((tag) => ({
+      url: absoluteUrl(`/tags/${tag.slug}`),
+      lastModified: latestUpdate(getArticlesByTagSlug(tag.slug)),
+      changeFrequency: "weekly" as const,
+      priority: 0.5
+    }));
 
   return [
     ...listingEntries,
