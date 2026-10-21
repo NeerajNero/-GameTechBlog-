@@ -62,6 +62,12 @@ export function createPageMetadata({
   };
 }
 
+/**
+ * When the article has a renderable cover it is used for OG/Twitter. When it
+ * has none, `images` is left unset on purpose so Next falls back to the
+ * generated card from app/articles/[slug]/opengraph-image.tsx (file-based
+ * metadata only applies when config metadata does not define images).
+ */
 export function createArticleMetadata(article: Article): Metadata {
   const url = absoluteUrl(`/articles/${article.slug}`);
   const images = createImageMetadata(
