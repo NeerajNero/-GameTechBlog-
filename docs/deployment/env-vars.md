@@ -17,6 +17,22 @@ Rules:
 - Do not include a trailing slash; the app normalizes trailing slashes if present.
 - Production indexing is enabled only when `VERCEL_ENV=production` and `NEXT_PUBLIC_SITE_URL` is set.
 
+## Admin Publishing (`/admin/new`)
+
+Server-only variables for the mobile "new article" page, which commits an MDX file
+through the GitHub Contents API. Never prefix these with `NEXT_PUBLIC_`.
+
+| Variable | Required | Example | Purpose |
+| --- | --- | --- | --- |
+| `ADMIN_SECRET` | yes for publishing | long random string | Bearer secret the admin page sends to `POST /api/admin/articles` |
+| `GITHUB_TOKEN` | yes for publishing | fine-grained PAT | Needs `Contents: read and write` on the repo |
+| `GITHUB_REPO` | yes for publishing | `NeerajNero/-GameTechBlog-` | Target repository as `owner/name` |
+| `GITHUB_BRANCH` | no | `main` | Branch to commit to; defaults to `main` |
+| `ADMIN_AUTHOR_NAME` | no | `Neeraj Kumar Sharma` | Frontmatter `author`; defaults to the site author |
+
+When any required variable is missing the API returns `503` and nothing can be
+published. A local template lives at `apps/web/.env.example`.
+
 ## Local Development
 
 The app falls back to:
@@ -58,5 +74,3 @@ Do not add these unless a future task explicitly implements the related feature:
 - AdSense publisher IDs
 - Affiliate network credentials
 - Database URLs
-- Auth secrets
-- CMS tokens

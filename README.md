@@ -106,6 +106,13 @@ Ad code is env-gated and inert until a publisher ID is configured:
   visitors before serving personalized ads there.
 - See `apps/web/lib/site/adsense.ts` for details.
 
+### Publishing from a phone
+
+`/admin/new` is a mobile-first form that commits a new MDX article to this repo via
+the GitHub Contents API; Vercel then rebuilds and the post goes live. It is
+create-only and gated by `ADMIN_SECRET`. Required env vars are listed in
+[docs/deployment/env-vars.md](docs/deployment/env-vars.md) and `apps/web/.env.example`.
+
 ## Project Boundaries
 
 GameTechGuides is currently a static production content site. Do not add these
@@ -113,8 +120,7 @@ unless a future task explicitly changes the product scope:
 
 - Backend
 - Database
-- Auth
-- CMS/admin
+- Auth or CMS beyond the single secret-gated `/admin/new` page
 - Docker infrastructure
 - Analytics
 - Affiliate links
