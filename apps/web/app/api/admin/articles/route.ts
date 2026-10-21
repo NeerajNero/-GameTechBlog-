@@ -1,6 +1,7 @@
-import { createHash, timingSafeEqual } from "node:crypto";
 import { NextResponse } from "next/server";
+import { getAdminSecret, isAdminAuthorized } from "@/lib/admin/auth";
 import { serializeArticle, validateFrontmatter } from "@/lib/content/frontmatter";
+import { checkArticleMdx, toMdxCompileError } from "@/lib/content/mdx";
 import type { ArticleFrontmatter } from "@/lib/content/types";
 import { absoluteUrl } from "@/lib/seo/urls";
 import { siteConfig } from "@/lib/site/config";
@@ -22,7 +23,7 @@ type AdminConfig = {
 };
 
 function readConfig(): AdminConfig | undefined {
-  const adminSecret = process.env.ADMIN_SECRET?.trim();
+  const adminSecret = getAdminSecret();
   const githubToken = process.env.GITHUB_TOKEN?.trim();
   const githubRepo = process.env.GITHUB_REPO?.trim();
 
@@ -37,21 +38,6 @@ function readConfig(): AdminConfig | undefined {
     githubBranch: process.env.GITHUB_BRANCH?.trim() || "main",
     authorName: process.env.ADMIN_AUTHOR_NAME?.trim() || siteConfig.author
   };
-}
-
-function isAuthorized(request: Request, adminSecret: string): boolean {
-  const header = request.headers.get("authorization") ?? "";
-  const match = /^Bearer\s+(.+)$/i.exec(header);
-
-  if (!match) {
-    return false;
-  }
-
-  // Hash both sides so timingSafeEqual always compares equal-length buffers.
-  const provided = createHash("sha256").update(match[1].trim()).digest();
-  const expected = createHash("sha256").update(adminSecret).digest();
-
-  return timingSafeEqual(provided, expected);
 }
 
 function optionalString(value: unknown): string | undefined {
@@ -214,7 +200,7 @@ export async function POST(request: Request) {
     );
   }
 
-  if (!isAuthorized(request, config.adminSecret)) {
+  if (!isAdminAuthorized(request, config.adminSecret)) {
     return NextResponse.json({ error: "Unauthorized." }, { status: 401 });
   }
 
@@ -242,6 +228,23 @@ export async function POST(request: Request) {
   } catch (error) {
     return NextResponse.json(
       { error: error instanceof Error ? error.message : "Validation failed." },
+      { status: 400 }
+    );
+  }
+
+  // Compile with the site's own MDX pipeline so a stray `<` or `{` is caught
+  // here instead of breaking the production build after the commit lands.
+  try {
+    await checkArticleMdx(parsed.body);
+  } catch (error) {
+    const compileError = toMdxCompileError(error);
+    const where = compileError.line ? ` at line ${compileError.line}` : "";
+
+    return NextResponse.json(
+      {
+        error: `MDX did not compile${where}. Fix the body and try again.`,
+        fields: { body: `${where ? `Line ${compileError.line}: ` : ""}${compileError.message}` }
+      },
       { status: 400 }
     );
   }

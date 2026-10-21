@@ -1,7 +1,7 @@
 import type { Article } from "@/lib/content/types";
 import { siteConfig } from "@/lib/site/config";
 import { absoluteUrl } from "@/lib/seo/urls";
-import { getRenderableImageSrc } from "@/lib/content/images";
+import { getArticleSocialImageUrl } from "@/lib/seo/article-image";
 
 type JsonValue =
   | string
@@ -36,16 +36,6 @@ function removeEmptyValues(value: unknown): unknown {
   }
 
   return value;
-}
-
-function safeImageUrl(imagePath?: string): string | undefined {
-  const src = getRenderableImageSrc(imagePath);
-
-  if (!src) {
-    return undefined;
-  }
-
-  return src.startsWith("http") ? src : absoluteUrl(src);
 }
 
 export function sanitizeJsonLd(value: JsonInput): JsonRecord {
@@ -89,7 +79,7 @@ export function createArticleJsonLd(article: Article): JsonRecord {
       "@type": "Organization",
       name: siteConfig.name
     },
-    image: safeImageUrl(article.coverImage),
+    image: getArticleSocialImageUrl(article),
     mainEntityOfPage: {
       "@type": "WebPage",
       "@id": articleUrl
