@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { getAdminSecret, isAdminAuthorized } from "@/lib/admin/auth";
 import { serializeArticle, validateFrontmatter } from "@/lib/content/frontmatter";
-import { compileArticleMdx, toMdxCompileError } from "@/lib/content/mdx";
+import { checkArticleMdx, toMdxCompileError } from "@/lib/content/mdx";
 import type { ArticleFrontmatter } from "@/lib/content/types";
 import { absoluteUrl } from "@/lib/seo/urls";
 import { siteConfig } from "@/lib/site/config";
@@ -235,15 +235,15 @@ export async function POST(request: Request) {
   // Compile with the site's own MDX pipeline so a stray `<` or `{` is caught
   // here instead of breaking the production build after the commit lands.
   try {
-    await compileArticleMdx(parsed.body);
+    await checkArticleMdx(parsed.body);
   } catch (error) {
     const compileError = toMdxCompileError(error);
-    const where = compileError.line ? ` (line ${compileError.line})` : "";
+    const where = compileError.line ? ` at line ${compileError.line}` : "";
 
     return NextResponse.json(
       {
-        error: `MDX did not compile${where}: ${compileError.message}`,
-        fields: { body: `Line ${compileError.line ?? "?"}: ${compileError.message}` }
+        error: `MDX did not compile${where}. Fix the body and try again.`,
+        fields: { body: `${where ? `Line ${compileError.line}: ` : ""}${compileError.message}` }
       },
       { status: 400 }
     );

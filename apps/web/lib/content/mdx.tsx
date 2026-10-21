@@ -46,17 +46,37 @@ export type MdxCompileError = {
   column?: number;
 };
 
-/** Compiles article MDX exactly as the site does; returns the React element. */
-export async function compileArticleMdx(source: string) {
+/**
+ * Compiles article MDX exactly as the site does and throws on anything that
+ * would fail the production build.
+ *
+ * Compilation alone only catches syntax errors. A bare `{expression}` or an
+ * unknown `<Component>` compiles cleanly and throws when the element tree is
+ * built. The generated MDXContent is a plain function with no hooks, so calling
+ * it once builds that tree (without rendering child components) and surfaces
+ * those errors here instead of at build time.
+ */
+export async function checkArticleMdx(source: string): Promise<void> {
   const { content } = await compileMDX({
     source,
     components: mdxComponents,
     options: mdxOptions
   });
 
-  return content;
+  if (typeof content.type === "function") {
+    (content.type as (props: unknown) => unknown)(content.props);
+  }
 }
 
+const NEXT_MDX_REMOTE_PREFIX = /^\[next-mdx-remote\] error compiling MDX:\s*/;
+const MORE_INFORMATION_SUFFIX = /\s*More information: https:\/\/mdxjs\.com\S*\s*$/;
+const POSITION_PATTERN = /(\d+):(\d+)(?:-\d+:\d+)?/;
+
+/**
+ * Normalizes errors from compileMDX / tree evaluation. next-mdx-remote rewraps
+ * compiler errors as a plain Error and drops the original position, so the
+ * line is recovered from the message text when the compiler included it.
+ */
 export function toMdxCompileError(error: unknown): MdxCompileError {
   if (typeof error === "object" && error !== null) {
     const { reason, message, line, column } = error as {
@@ -65,17 +85,19 @@ export function toMdxCompileError(error: unknown): MdxCompileError {
       line?: unknown;
       column?: unknown;
     };
-    const text =
+    const raw =
       typeof reason === "string" && reason !== ""
         ? reason
         : typeof message === "string"
           ? message
           : "Unknown MDX error.";
+    const text = raw.replace(NEXT_MDX_REMOTE_PREFIX, "").replace(MORE_INFORMATION_SUFFIX, "").trim();
+    const position = POSITION_PATTERN.exec(text);
 
     return {
       message: text,
-      line: typeof line === "number" ? line : undefined,
-      column: typeof column === "number" ? column : undefined
+      line: typeof line === "number" ? line : position ? Number(position[1]) : undefined,
+      column: typeof column === "number" ? column : position ? Number(position[2]) : undefined
     };
   }
 
