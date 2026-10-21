@@ -461,7 +461,12 @@ export function ArticleForm({
           autoCapitalize="sentences"
           spellCheck
         />
-        {errors.body ? <p className={errorClass}>{errors.body}</p> : null}
+        {errors.body ? (
+          <p className={`${errorClass} whitespace-pre-wrap break-words font-mono text-xs leading-5`}>
+            {errors.body}
+          </p>
+        ) : null}
+        <FormattingHelp />
       </div>
 
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
@@ -483,5 +488,75 @@ export function ArticleForm({
         ) : null}
       </div>
     </form>
+  );
+}
+
+const formattingRows: Array<[string, string]> = [
+  ["Paragraph", "Leave one blank line between paragraphs."],
+  ["Heading", "## Section title"],
+  ["Bold / italic", "**bold** and *italic*"],
+  ["List", "- First point\n- Second point"],
+  ["Link", "[link text](https://example.com)"],
+  ["Quote", "> A short quoted line."]
+];
+
+const blockExamples: Array<[string, string]> = [
+  [
+    "ArticleQuickTake",
+    '<ArticleQuickTake verdict="One-line verdict.">Short summary paragraph.</ArticleQuickTake>'
+  ],
+  ["ArticleCallout", '<ArticleCallout title="Note">Something worth knowing.</ArticleCallout>'],
+  ["ArticleHighlight", "A sentence with <ArticleHighlight>a key phrase</ArticleHighlight> inside."],
+  [
+    "ArticleImage",
+    '<ArticleImage src="https://res.cloudinary.com/..." alt="Describe the image" caption="Optional caption" credit="Optional credit" orientation="landscape" />'
+  ],
+  ["ArticlePullQuote", '<ArticlePullQuote cite="Optional source">Quoted sentence.</ArticlePullQuote>'],
+  [
+    "ArticleReadMore",
+    '<ArticleReadMore title="Optional deeper section">Extra paragraphs, collapsed by default.</ArticleReadMore>'
+  ],
+  ["ArticleVerdict", '<ArticleVerdict title="Verdict">Closing take.</ArticleVerdict>']
+];
+
+function FormattingHelp() {
+  return (
+    <details className="mt-3 rounded-md border border-slate-200 bg-white">
+      <summary className="flex min-h-[44px] cursor-pointer list-none items-center px-4 text-sm font-bold text-ink marker:content-none">
+        Formatting help
+      </summary>
+      <div className="space-y-4 border-t border-slate-200 px-4 py-4 text-sm text-slate-600">
+        <p className="rounded-md border border-pulse/30 bg-pulse/5 px-3 py-2 font-semibold text-pulse">
+          MDX treats <code className="font-mono">&lt;</code> and <code className="font-mono">&#123; &#125;</code>{" "}
+          as code: <code className="font-mono">&lt;5ms</code> fails the post and text inside braces
+          disappears. Write <code className="font-mono">&amp;lt;</code> and{" "}
+          <code className="font-mono">&amp;#123;</code> instead, or put the text in backticks.
+        </p>
+        <dl className="grid gap-2 sm:grid-cols-[8rem_1fr]">
+          {formattingRows.map(([label, example]) => (
+            <div key={label} className="contents">
+              <dt className="font-bold text-ink">{label}</dt>
+              <dd className="whitespace-pre-wrap break-words font-mono text-xs leading-5 text-slate-700">
+                {example}
+              </dd>
+            </div>
+          ))}
+        </dl>
+        <div>
+          <p className="font-bold text-ink">Custom blocks</p>
+          <p className="mt-1">Each one needs a blank line before and after it.</p>
+          <dl className="mt-2 grid gap-2 sm:grid-cols-[8rem_1fr]">
+            {blockExamples.map(([label, example]) => (
+              <div key={label} className="contents">
+                <dt className="font-bold text-ink">{label}</dt>
+                <dd className="whitespace-pre-wrap break-all font-mono text-xs leading-5 text-slate-700">
+                  {example}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </div>
+    </details>
   );
 }
