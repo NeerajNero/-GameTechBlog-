@@ -63,17 +63,7 @@ export function ArticleHeader({ article }: { article: Article }) {
             </figcaption>
           ) : null}
         </figure>
-      ) : (
-        <div className="min-h-64 rounded-2xl bg-[linear-gradient(135deg,#0f172a,#0f766e_52%,#dc2626)] p-6 text-white shadow-soft">
-          <p className="text-sm font-bold uppercase tracking-wide text-white/70">
-            Cover image pending
-          </p>
-          <p className="mt-16 max-w-xl text-2xl font-black leading-tight">
-            A real Cloudinary cover image can be added when the content asset pass is
-            ready.
-          </p>
-        </div>
-      )}
+      ) : null}
     </header>
   );
 }
