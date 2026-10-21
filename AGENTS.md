@@ -23,5 +23,5 @@ The original starter-pack role prompts remain as reference documentation:
 - Verify with: `pnpm --dir apps/web lint && pnpm --dir apps/web typecheck && pnpm --dir apps/web build`.
 - Production indexing requires `VERCEL_ENV=production` + `NEXT_PUBLIC_SITE_URL` (see `apps/web/lib/seo/urls.ts`).
 - AdSense is env-gated via `NEXT_PUBLIC_ADSENSE_CLIENT_ID` (`apps/web/lib/site/adsense.ts`, `/ads.txt` route); no ad code loads until it is set.
-- Article frontmatter is validated at build time by `apps/web/lib/content/validation.ts`; slug must match filename.
+- Article frontmatter is validated at build time by `apps/web/lib/content/frontmatter.ts`; slug must match filename.
 - Monetization, deployment, and third-party-script changes are always the "risky" lane in [docs/flow-policy.md](docs/flow-policy.md).

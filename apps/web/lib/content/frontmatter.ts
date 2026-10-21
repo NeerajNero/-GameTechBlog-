@@ -1,3 +1,4 @@
+import matter from "gray-matter";
 import type { ArticleFrontmatter } from "@/lib/content/types";
 import { isRenderableImage } from "@/lib/content/images";
 
@@ -69,4 +70,45 @@ export function validateFrontmatter(
   }
 
   return value as ArticleFrontmatter;
+}
+
+/**
+ * Frontmatter key order used by the existing articles. Serialized output
+ * follows this order so generated files look like hand-written ones.
+ */
+export const frontmatterKeyOrder: Array<keyof ArticleFrontmatter> = [
+  "title",
+  "slug",
+  "description",
+  "category",
+  "tags",
+  "author",
+  "publishedAt",
+  "updatedAt",
+  "coverImage",
+  "coverImageAlt",
+  "coverImageCredit",
+  "quickTake",
+  "featured",
+  "draft",
+  "seoTitle",
+  "seoDescription"
+];
+
+/**
+ * Produces the full MDX file contents (frontmatter + body) for an article.
+ * Optional keys that are undefined are omitted.
+ */
+export function serializeArticle(frontmatter: ArticleFrontmatter, body: string): string {
+  const ordered: Record<string, unknown> = {};
+
+  for (const key of frontmatterKeyOrder) {
+    if (frontmatter[key] !== undefined) {
+      ordered[key] = frontmatter[key];
+    }
+  }
+
+  const content = `\n${body.trim()}\n`;
+
+  return matter.stringify(content, ordered);
 }
